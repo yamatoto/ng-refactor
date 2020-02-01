@@ -1,0 +1,90 @@
+{
+    "env": {
+        "browser": true,
+        "node": true,
+        "es6": true
+    },
+    "extends": [
+        "plugin:@typescript-eslint/recommended",
+        "plugin:@typescript-eslint/eslint-recommended"
+    ],
+    "globals": {},
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaVersion": 6,
+        "project": "tsconfig.json",
+        "sourceType": "module",
+        "ecmaFeatures": {
+            "modules": true
+        }
+    },
+    "plugins": [
+        "html",
+        "@typescript-eslint"
+    ],
+    "settings": {
+        "html/html-extensions": [".html", ".we"],
+        "html/report-bad-indent": "error"
+    },
+    "rules": {
+        "@typescript-eslint/indent": ["error", 4, {
+            "SwitchCase": 1,
+            "CallExpression": {
+                "arguments": "first"
+            },
+            "FunctionExpression": {
+                "parameters": "first"
+            },
+            "FunctionDeclaration": {
+                "parameters": "first"
+            }
+        }],
+        "@typescript-eslint/no-explicit-any": "off",
+        "@typescript-eslint/explicit-function-return-type": "off",
+        "@typescript-eslint/no-parameter-properties": "off",
+        "@typescript-eslint/no-empty-function": "off",
+        "@typescript-eslint/no-unused-vars": "off",
+        "eqeqeq": ["error", "smart"],
+        "semi": ["error", "always"],
+        "quotes": ["error", "single"],
+        "block-spacing": ["error", "always"],
+        "comma-spacing": "error",
+        "computed-property-spacing": "error",
+        "arrow-spacing": ["error", {
+            "before": true,
+            "after": true
+        }],
+        "key-spacing": ["error", {
+            "beforeColon": false,
+            "afterColon": true,
+            "mode": "minimum"
+        }],
+        "no-spaced-func": "error",
+        "space-infix-ops": ["error", { "int32Hint": false }],
+        "no-multiple-empty-lines": [2, {
+            "max": 1
+        }],
+        "spaced-comment": ["error", "always", {
+            "line": {
+                "markers": ["/"],
+                "exceptions": ["-", "+"]
+            },
+            "block": {
+                "markers": ["!"],
+                "exceptions": ["*"],
+                "balanced": true
+            }
+        }],
+        "space-before-blocks": ["error", {
+            "functions": "always",
+            "keywords": "always",
+            "classes": "always"
+        }],
+        "brace-style": [2, "1tbs", { "allowSingleLine": true }],
+        "no-lonely-if": "error",
+        "no-trailing-spaces": "error",
+        "operator-linebreak": ["error", "before"],
+        "semi-spacing": "error",
+        "keyword-spacing": 2
+    }
+}
