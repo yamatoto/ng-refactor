@@ -8,4 +8,4 @@ import { NgModule } from '@angular/core';
     providers: [],
     bootstrap: []
 })
-export class OrderModule { }
+export class OrdersModule { }

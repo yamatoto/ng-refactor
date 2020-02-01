@@ -1,8 +1,9 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { MatIconModule, MatListModule, MatMenuModule, MatProgressSpinnerModule, MatSliderModule, MatToolbarModule, MatSidenavModule } from '@angular/material';
+import { MatIconModule, MatListModule, MatMenuModule, MatProgressSpinnerModule, MatSidenavModule, MatSliderModule, MatToolbarModule } from '@angular/material';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RouterState, StoreRouterConnectingModule } from '@ngrx/router-store';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
@@ -33,7 +34,11 @@ import { metaReducers, reducers } from './reducers';
                 strictActionImmutability: true
             }
         }),
-        StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
+        StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
+        StoreRouterConnectingModule.forRoot({
+            stateKey: 'router',
+            routerState: RouterState.Minimal
+        })
     ],
     providers: [],
     bootstrap: [AppComponent]

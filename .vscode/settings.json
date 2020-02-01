@@ -85,7 +85,8 @@
     "files.autoSave": "off", //ダーティファイルの作成を無効
     "files.eol": "\n", // 改行コードをLF(Linux/OSX)にする
     "files.insertFinalNewline": true, // ファイルの終端に空の行を追加
-    "files.autoGuessEncoding": true, // 文字コードを自動判別
+    "files.autoGuessEncoding": false, // 文字コードを自動判別
+    "files.encoding": "utf8",
     "files.trimFinalNewlines": true, // 不要な行の削除
     "files.exclude": { // エクスプローラーから除外するファイルとフォルダ
         "**/.git": true,
