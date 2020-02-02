@@ -1,9 +1,12 @@
-import { NewsModel } from './../model/model';
+import { NewsCategoirsModel, NewsModel } from './../model/model';
 
 export function findAllNews() {
-    return NewsModel.findAll(
-        {
-            order: ['opened_at']
-        }
-    );
+    return NewsModel.findAll({
+        order: ['opened_at'],
+        include: [
+            {
+                model: NewsCategoirsModel
+            },
+        ],
+    });
 }
