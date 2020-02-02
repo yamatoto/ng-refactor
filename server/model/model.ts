@@ -1,10 +1,10 @@
 import * as ORM from 'Sequelize';
-import { LoggingOptions } from 'Sequelize';
+import { Options } from 'Sequelize';
 import { initNewsModel } from './initNewsModel';
 
 const config = require('../config/config.json')['development'];
 
-const options: LoggingOptions = {benchmark: true, logging: console.log};
+const options: Options = {logging: console.log, dialect: config.dialect};
 
 const sequelize = new ORM(config.database, config.username, config.password, options);
 
