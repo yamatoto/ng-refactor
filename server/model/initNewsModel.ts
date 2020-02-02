@@ -6,11 +6,9 @@ export function initNewsModel(sequelize: Sequelize) {
     return sequelize.define('news', {
         id: {
             primaryKey: true,
-            type: ORM.UUID,
+            type: ORM.INTEGER
         },
-        category_id: {
-            type: ORM.INTEGER,
-        },
+        category_id: ORM.INTEGER,
         title: ORM.STRING,
         content: ORM.TEXT,
         opened_at: ORM.DATE,

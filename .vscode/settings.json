@@ -20,12 +20,9 @@
     "html.format.indentInnerHtml": true,
     // JS
     "javascript.format.enable": false,
+    "javascript.updateImportsOnFileMove.enabled": "always",
     // TS
     "typescript.updateImportsOnFileMove.enabled": "always",
-    // ruby
-    "ruby.lint": {
-        "rubocop": true
-    },
     // エディター設定
     "editor.codeLens": false,
     "editor.wordWrap": "off", // 右端で折り返す
@@ -41,7 +38,7 @@
         "other": true //  その他の場所で有効
     },
     "editor.formatOnType": true,
-    "editor.formatOnPaste": false,
+    "editor.formatOnPaste": true,
     "editor.formatOnSave": false, // eslintの方を使う
     "editor.codeActionsOnSave": { // コード整形
         "source.fixAll": true,
@@ -55,6 +52,10 @@
     },
     "[css]": {
         "editor.formatOnSave": true
+    },
+    "[json]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "editor.folding": true, // コードの折りたたみを許可
     "editor.letterSpacing": -1, // 文字の間隔を詰める
@@ -80,6 +81,7 @@
     "editor.mouseWheelZoom": false, // Ctrl+マウスホイールによるズームを無効化
     "editor.suggestFontSize": 14, // サジェストの文字サイズ
     "editor.suggestLineHeight": 24, // サジェスト欄の行の高さ
+    "editor.suggestSelection": "first",
     // ファイル設定
     "files.trimTrailingWhitespace": true,
     "files.autoSave": "off", //ダーティファイルの作成を無効
@@ -143,12 +145,16 @@
         "scrollbar.shadow": "#0077ff99",
         "editorLink.activeForeground": "#5555ce",
     },
+    // git
+    "git.autofetch": true,
     // クラッシュレポートを送信する
     "telemetry.enableCrashReporter": true,
     "telemetry.enableTelemetry": true,
     // 拡張機能
     "extensions.ignoreRecommendations": false, // 推奨事項の通知をOFF
-    //
+    // bookmarks
     "bookmarks.navigateThroughAllFiles": true,
-    "vsicons.dontShowNewVersionMessage": true
+    // vsicons
+    "vsicons.dontShowNewVersionMessage": true,
+    "vsicons.presets.jsonOfficial": true,
 }

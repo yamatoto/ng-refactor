@@ -1,4 +1,13 @@
-import { findAllNews } from './queries/findAllNews';
+import * as express from 'express';
+import { Application } from 'express';
+import { initRestApi } from './api/api';
+import { apiErrorHandler } from './api/apiErrorHandler';
 
-findAllNews()
-    .then(result => console.log(JSON.stringify(result)));
+const app: Application = express();
+
+initRestApi(app);
+app.use(apiErrorHandler);
+
+app.listen(8090, () => {
+    console.log('Server now is runnig on port 8090');
+});
