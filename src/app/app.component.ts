@@ -24,6 +24,13 @@ export class AppComponent implements OnInit {
     }
 
     ngOnInit() {
+        this.setLoading();
+    }
+
+    /**
+     * ローディング表示.
+     */
+    private setLoading(): void {
         this.router.events.subscribe(event => {
             switch (true) {
                 case event instanceof NavigationStart: {
@@ -43,6 +50,9 @@ export class AppComponent implements OnInit {
         });
     }
 
-    logout() {
+    /**
+     * ログアウト処理.
+     */
+    logout(): void {
     }
 }
