@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
+import { logout } from './core/auth/auth.actions';
 import { AppState } from './reducers/index';
 
 @Component({
@@ -54,5 +55,6 @@ export class AppComponent implements OnInit {
      * ログアウト処理.
      */
     logout(): void {
+        this.store.dispatch(logout());
     }
 }

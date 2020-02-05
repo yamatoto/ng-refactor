@@ -124,6 +124,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "item-refactor"
+    }
+  },
+  "defaultProject": "item-refactor",
+  "cli": {
+    "defaultCollection": "@ngrx/schematics"
+  }
 }
