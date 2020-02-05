@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
         this.authService.login(this.form.value)
             .pipe(
                 tap(user => {
-                    this.store.dispatch(login({user}));
+                    this.store.dispatch(login({ user }));
                     this.router.navigateByUrl('/home');
                 })
             ).subscribe(
