@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Router } from '@angular/router';
-import { Store } from '@ngrx/store';
+import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { logout } from './core/auth/auth.actions';
+import { login, logout } from './core/auth/auth.actions';
+import { isLoggedIn, isLoggedOut } from './core/auth/auth.selectors';
 import { AppState } from './reducers/index';
 
 @Component({
@@ -25,7 +26,18 @@ export class AppComponent implements OnInit {
     }
 
     ngOnInit() {
+        const userProfile = localStorage.getItem('user');
+        if (userProfile) {
+            this.store.dispatch(login({'user': JSON.parse(userProfile)}));
+        }
+
         this.setLoading();
+        this.isLoggedIn$ = this.store.pipe(
+            select(isLoggedIn)
+        );
+        this.isLoggedOut$ = this.store.pipe(
+            select(isLoggedOut)
+        );
     }
 
     /**

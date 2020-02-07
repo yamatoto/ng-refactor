@@ -6,7 +6,6 @@ const homeRoutes: Routes = [
     {
         path: '',
         data: { breadcrumb: 'ホーム' },
-        // canActivate: [AuthGuard],
         children: [
             {
                 path: '',

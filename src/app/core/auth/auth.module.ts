@@ -2,8 +2,10 @@ import { CommonModule } from '@angular/common';
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule, MatCardModule, MatInputModule } from '@angular/material';
+import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { AuthRoutingModule } from './auth-routing.module';
+import { AuthEffects } from './auth.effects';
 import { AuthGuard } from './auth.guard';
 import { AuthService } from './auth.service';
 import { LoginComponent } from './login/login.component';
@@ -20,7 +22,8 @@ import { authReducer } from './reducers/index';
         MatInputModule,
         MatButtonModule,
         AuthRoutingModule,
-        StoreModule.forFeature('auth', authReducer)
+        StoreModule.forFeature('auth', authReducer),
+        EffectsModule.forFeature([AuthEffects])
     ],
     exports: [LoginComponent]
 })
