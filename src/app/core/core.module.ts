@@ -1,19 +1,19 @@
-import { CommonModule } from '@angular/common';
-import { ModuleWithProviders, NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
-import { MatButtonModule, MatCardModule, MatInputModule } from '@angular/material';
+import { ModuleWithProviders, NgModule, Optional, SkipSelf } from '@angular/core';
+import { SharedModule } from '../shared/shared.module';
+import { NavComponent } from './nav/nav.component';
 
 @NgModule({
-    declarations: [
-    ],
     imports: [
-        CommonModule,
-        ReactiveFormsModule,
-        MatCardModule,
-        MatInputModule,
-        MatButtonModule
+        SharedModule
     ],
-    exports: []
+    exports: [
+        NavComponent
+    ],
+    providers: [
+    ],
+    declarations: [
+        NavComponent
+    ]
 })
 export class CoreModule {
     static forRoot(): ModuleWithProviders {
@@ -22,5 +22,13 @@ export class CoreModule {
             providers: [
             ]
         };
+    }
+
+    constructor(@Optional() @SkipSelf() parentModule: CoreModule) {
+        if (parentModule) {
+            throw new Error(
+                'CoreModule is already loaded. Import it in the AppModule only'
+            );
+        }
     }
 }

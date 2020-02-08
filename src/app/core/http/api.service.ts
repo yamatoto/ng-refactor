@@ -54,12 +54,15 @@ export class ApiService {
             'x-xsrf-token': this.sessionhttpService.getToken(),
             'Content-Type': CONTENT_TYPE_JSON,
         });
-        const options = { headers: HEADERS, withCredentials: true };
+        const options = {
+            headers: HEADERS, withCredentials: true
+        };
 
         return this.http
             .post<RES_MODEL>(API_URL, model, options)
             .pipe(tap(endLogger, console.error));
     }
+
     /**
      * APIサーバからデータリストを取得する.(get)
      * @param url APIのURL

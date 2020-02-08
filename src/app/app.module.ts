@@ -1,19 +1,29 @@
-import { HttpClientModule } from '@angular/common/http';
+import { registerLocaleData } from '@angular/common';
+import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import localeja from '@angular/common/locales/ja';
 import { NgModule } from '@angular/core';
-import { MatIconModule, MatListModule, MatMenuModule, MatProgressSpinnerModule, MatSidenavModule, MatSliderModule, MatToolbarModule } from '@angular/material';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { EntityDataModule } from '@ngrx/data';
 import { EffectsModule } from '@ngrx/effects';
 import { RouterState, StoreRouterConnectingModule } from '@ngrx/router-store';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { CookieService } from 'ngx-cookie-service';
 import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthModule } from './core/auth/auth.module';
+import { CoreModule } from './core/core.module';
+import { HttpApiInterceptor } from './core/interceptors/http-api.interceptor';
 import { metaReducers, reducers } from './reducers';
+registerLocaleData(localeja, 'ja');
+export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
+    return new TranslateHttpLoader(http, '/assets/i18n/', '.json?t=' + new Date().getTime());
+}
 
 @NgModule({
     declarations: [
@@ -22,15 +32,17 @@ import { metaReducers, reducers } from './reducers';
     imports: [
         BrowserModule,
         BrowserAnimationsModule,
+        NgbModule,
         AppRoutingModule,
+        CoreModule,
         HttpClientModule,
-        MatMenuModule,
-        MatIconModule,
-        MatSliderModule,
-        MatSidenavModule,
-        MatProgressSpinnerModule,
-        MatListModule,
-        MatToolbarModule,
+        TranslateModule.forRoot({
+            loader: {
+                provide: TranslateLoader,
+                useFactory: HttpLoaderFactory,
+                deps: [HttpClient]
+            }
+        }),
         AuthModule.forRoot(),
         StoreModule.forRoot(reducers, {
             metaReducers,
@@ -49,7 +61,10 @@ import { metaReducers, reducers } from './reducers';
             routerState: RouterState.Minimal
         })
     ],
-    providers: [CookieService],
+    providers: [
+        CookieService,
+        {provide: HTTP_INTERCEPTORS, useClass: HttpApiInterceptor, multi: true}
+    ],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,9 +1,13 @@
 {
+    "TEXT": {
+        "AVAILABLE_TIME": "ご利用時間",
+        "CONTACT_INFO": "お問合せ先",
+        "SITE_OPEN_TIME": "AM7:00",
+        "SITE_CLOSE_TIME": "PM10:00"
+    },
     "INFO": {
         "NO_NEWS": "お知らせはありません。",
         "SEARCH_RESULT_ZERO": "検索結果は0件です。",
-        "SITE_OPEN_TIME": "AM7:00",
-        "SITE_CLOSE_TIME": "PM10:00",
         "DELETE_CONFIRM_MESSAGE": "{{param}}を削除します。よろしいですか。"
     },
     "SUCCESS": {

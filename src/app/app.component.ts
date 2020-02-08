@@ -1,10 +1,17 @@
-import { Component, OnInit } from '@angular/core';
-import { NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Router } from '@angular/router';
-import { select, Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
-import { login, logout } from './core/auth/auth.actions';
-import { isLoggedIn, isLoggedOut } from './core/auth/auth.selectors';
-import { AppState } from './reducers/index';
+import { Component, Injectable, OnInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
+
+const I18N_VALUES = {
+    'jpn': {
+        weekdays: ['月', '火', '水', '木', '金', '土', '日'],
+        months: ['１', '２', '３', '４', '５', '６', '７', '８', '９', '１０', '１１', '１２']
+    }
+};
+
+@Injectable()
+export class I18n {
+    language = 'jpn';
+}
 
 @Component({
     selector: 'app-root',
@@ -12,61 +19,14 @@ import { AppState } from './reducers/index';
     styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-    loading = true;
-
-    isLoggedIn$: Observable<boolean>;
-
-    isLoggedOut$: Observable<boolean>;
-
     constructor(
-        private router: Router,
-        private store: Store<AppState>
+        public translate: TranslateService
     ) {
-
+        translate.setDefaultLang('ja');
+        translate.use('ja');
     }
 
     ngOnInit() {
-        const userProfile = localStorage.getItem('user');
-        if (userProfile) {
-            this.store.dispatch(login({'user': JSON.parse(userProfile)}));
-        }
 
-        this.setLoading();
-        this.isLoggedIn$ = this.store.pipe(
-            select(isLoggedIn)
-        );
-        this.isLoggedOut$ = this.store.pipe(
-            select(isLoggedOut)
-        );
-    }
-
-    /**
-     * ローディング表示.
-     */
-    private setLoading(): void {
-        this.router.events.subscribe(event => {
-            switch (true) {
-                case event instanceof NavigationStart: {
-                    this.loading = true;
-                    break;
-                }
-                case event instanceof NavigationEnd:
-                case event instanceof NavigationCancel:
-                case event instanceof NavigationError: {
-                    this.loading = false;
-                    break;
-                }
-                default: {
-                    break;
-                }
-            }
-        });
-    }
-
-    /**
-     * ログアウト処理.
-     */
-    logout(): void {
-        this.store.dispatch(logout());
     }
 }
