@@ -1,0 +1,36 @@
+{
+    "INFO": {
+        "NO_NEWS": "お知らせはありません。",
+        "SEARCH_RESULT_ZERO": "検索結果は0件です。",
+        "SITE_OPEN_TIME": "AM7:00",
+        "SITE_CLOSE_TIME": "PM10:00",
+        "DELETE_CONFIRM_MESSAGE": "{{param}}を削除します。よろしいですか。"
+    },
+    "SUCCESS": {
+        "ENTRY": "{{param}}を登録しました。",
+        "UPDATE": "{{param}}を更新しました。",
+        "DELETE": "{{param}}を削除しました。",
+        "CONFIRMED": "{{param}}を確定しました。",
+        "ACCEPT": "{{param}}を承認しました。",
+        "CORRECT": "{{param}}を訂正しました。"
+    },
+    "ERRORS": {
+        "500_01": "システムエラーが発生しました。システム管理者へお問い合わせください。(コード：500_01)",
+        "VALICATE": {
+            "EMPTY": "{{param}}を入力してください。"
+        }
+    },
+    "RESOURCE_NAME": {
+        "PRE_PRODUCT": "仮品番",
+        "PRODUCT": "品番",
+        "ORDER": "発注",
+        "USER": "ユーザ",
+        "NEWS": "お知らせ"
+    },
+    "AUTH": {
+        "USER": "ユーザ権限",
+        "ADMIN": "管理者権限",
+        "HOST": "ホスト権限",
+        "MAKER": "メーカー権限"
+    }
+}

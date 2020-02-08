@@ -8,6 +8,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { RouterState, StoreRouterConnectingModule } from '@ngrx/router-store';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { CookieService } from 'ngx-cookie-service';
 import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -48,6 +49,7 @@ import { metaReducers, reducers } from './reducers';
             routerState: RouterState.Minimal
         })
     ],
+    providers: [CookieService],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -38,7 +38,7 @@
         "other": true //  その他の場所で有効
     },
     "editor.formatOnType": true,
-    "editor.formatOnPaste": true,
+    "editor.formatOnPaste": false,
     "editor.formatOnSave": false, // eslintの方を使う
     "editor.codeActionsOnSave": { // コード整形
         "source.fixAll": true,

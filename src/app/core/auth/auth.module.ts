@@ -4,10 +4,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule, MatCardModule, MatInputModule } from '@angular/material';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
+import { AuthHttpService } from '../http/auth-http.service';
 import { AuthRoutingModule } from './auth-routing.module';
 import { AuthEffects } from './auth.effects';
 import { AuthGuard } from './auth.guard';
-import { AuthService } from './auth.service';
 import { LoginComponent } from './login/login.component';
 import { authReducer } from './reducers/index';
 
@@ -32,7 +32,7 @@ export class AuthModule {
         return {
             ngModule: AuthModule,
             providers: [
-                AuthService,
+                AuthHttpService,
                 AuthGuard
             ]
         };

@@ -23,14 +23,15 @@ const appRoutes: Routes = [
     //     path: 'maintenamce',
     //     component: MaintenanceComponent
     // },
-    // {
-    //     path: '',
-    //     redirectTo: '/home',
-    //     pathMatch: 'full'
-    // },
+    {
+        path: '',
+        redirectTo: '/home',
+        pathMatch: 'full'
+    },
     {
         path: '**',
         redirectTo: '/',
+        pathMatch: 'full'
     },
 ];
 

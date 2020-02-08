@@ -12,6 +12,6 @@ app.use(bodyParser.json());
 initRestApi(app);
 app.use(apiErrorHandler);
 
-const httpServer = app.listen(9000, () => {
+const httpServer = app.listen(8090, () => {
     console.log('HTTP REST API Server running at http://localhost:' + httpServer.address().port);
 });

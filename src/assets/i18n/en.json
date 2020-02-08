@@ -1,0 +1,36 @@
+{
+    "INFO": {
+        "NO_NEWS": "There is no notification.",
+        "SEARCH_RESULT_ZERO": "There is no result.",
+        "SITE_OPEN_TIME": "AM7:00",
+        "SITE_CLOSE_TIME": "PM10:00",
+        "DELETE_CONFIRM_MESSAGE": "DELETE {{param}}, OK?"
+    },
+    "SUCCESS": {
+        "ENTRY": "{{param}} has been registered.",
+        "UPDATE": "{{param}} has been updated.",
+        "DELETE": "{{param}} has been deleted.",
+        "CONFIRMED": "{{param}} has been confirmed.",
+        "ACCEPT": "{{param}} has been approved.",
+        "CORRECT": "{{param}} has been corrected."
+    },
+    "ERRORS": {
+        "500_01": "A system error has occurred. Contact your system administrator.(CODE：500_01)",
+        "VALICATE": {
+            "EMPTY": "{{param}} is required。"
+        }
+    },
+    "RESOURCE_NAME": {
+        "PRE_PRODUCT": "PRE_PRODUCT",
+        "PRODUCT": "PRODUCT",
+        "ORDER": "ORDER",
+        "USER": "USER",
+        "NEWS": "NEWS"
+    },
+    "AUTH": {
+        "USER": "USER Authority",
+        "ADMIN": "Administrator Authority",
+        "HOST": "Hots Authority",
+        "MAKER": "Maker Authority"
+    }
+}

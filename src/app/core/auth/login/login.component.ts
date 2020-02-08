@@ -4,8 +4,8 @@ import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { noop } from 'rxjs';
 import { tap } from 'rxjs/operators';
+import { AuthHttpService } from '../../http/auth-http.service';
 import { login } from '../auth.actions';
-import { AuthService } from '../auth.service';
 import { AppState } from './../../../reducers/index';
 import { LoginFormService } from './../../services/login-form.service';
 
@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
 
     constructor(
         private formService: LoginFormService,
-        private authService: AuthService,
+        private authHttpService: AuthHttpService,
         private router: Router,
         private store: Store<AppState>
     ) { }
@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
      * ログイン処理.
      */
     login(): void {
-        this.authService.login(this.form.value)
+        this.authHttpService.login(this.form.value)
             .pipe(
                 tap(user => {
                     this.store.dispatch(login({ user }));

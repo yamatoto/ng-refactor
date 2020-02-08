@@ -1,4 +1,4 @@
-import { Auth } from './../enum/auth.enum';
+import { Auth } from '../enums/auth.enum';
 
 export interface User {
     id: number;
