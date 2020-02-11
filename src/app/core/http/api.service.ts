@@ -3,12 +3,11 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { environment } from '../../../environments/environment';
+import { ContentTypeConsts } from '../../shared/consts/content-type.const';
 import { CustomEncoder } from '../../shared/lib/custom-encoder.lib';
 import { GenericList } from '../../shared/models/generic-list.mode';
 import { ObjectService } from '../services/utils/object.service';
 import { SessionHttpService } from './session-http.service';
-
-const CONTENT_TYPE_JSON = 'application/json';
 
 @Injectable({
     providedIn: 'root',
@@ -52,7 +51,7 @@ export class ApiService {
         const API_URL = `${environment.apiBaseUrl}${url}`;
         const HEADERS = new HttpHeaders({
             'x-xsrf-token': this.sessionhttpService.getToken(),
-            'Content-Type': CONTENT_TYPE_JSON,
+            'Content-Type': ContentTypeConsts.JSON,
         });
         const options = {
             headers: HEADERS, withCredentials: true
@@ -95,7 +94,7 @@ export class ApiService {
         const API_URL = `${environment.apiBaseUrl}${url}`;
         const HEADERS = new HttpHeaders({
             'x-xsrf-token': this.sessionhttpService.getToken(),
-            'Content-Type': CONTENT_TYPE_JSON,
+            'Content-Type': ContentTypeConsts.JSON,
         });
         const options = { headers: HEADERS, withCredentials: true };
 
@@ -117,7 +116,7 @@ export class ApiService {
         const API_URL = `${environment.apiBaseUrl}${url}`;
         const HEADERS = new HttpHeaders({
             'x-xsrf-token': this.sessionhttpService.getToken(),
-            'Content-Type': CONTENT_TYPE_JSON,
+            'Content-Type': ContentTypeConsts.JSON,
         });
         const options = { headers: HEADERS, withCredentials: true };
 
@@ -139,7 +138,7 @@ export class ApiService {
         const API_URL = `${environment.apiBaseUrl}${url}`;
         const HEADERS = new HttpHeaders({
             'x-xsrf-token': this.sessionhttpService.getToken(),
-            'Content-Type': CONTENT_TYPE_JSON,
+            'Content-Type': ContentTypeConsts.JSON,
         });
         const options = { headers: HEADERS, withCredentials: true };
 
@@ -160,7 +159,7 @@ export class ApiService {
         const API_URL = `${environment.apiBaseUrl}${url}`;
         const HEADERS = new HttpHeaders({
             'x-xsrf-token': this.sessionhttpService.getToken(),
-            'Content-Type': CONTENT_TYPE_JSON,
+            'Content-Type': ContentTypeConsts.JSON,
         });
         const options = { headers: HEADERS, withCredentials: true };
 

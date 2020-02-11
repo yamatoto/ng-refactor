@@ -1,6 +1,6 @@
 export enum Auth {
     System,
     Admin,
-    Host,
+    Internal,
     Maker
 }

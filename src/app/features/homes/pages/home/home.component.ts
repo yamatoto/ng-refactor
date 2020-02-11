@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
+import { map, shareReplay } from 'rxjs/operators';
+import { NewsHttpService } from '../../../../core/http/news-http.service';
+import { News } from '../../../../shared/models/news.model';
 
 @Component({
     selector: 'app-home',
@@ -9,10 +12,10 @@ import { Observable } from 'rxjs';
 export class HomeComponent implements OnInit {
 
     loading$: Observable<boolean>
-    news$: Observable<any[]>; // TODO:interface
+    news$: Observable<News[]>;
 
     constructor(
-        // private newsHttpService: NewsHttpService
+        private newsHttpService: NewsHttpService
     ) { }
 
     ngOnInit() {
@@ -23,11 +26,10 @@ export class HomeComponent implements OnInit {
      * リロード処理.
      */
     reload(): void {
-        // const news$ = this.newsHttpService.findAllNews()
-        //     .pipe(
-        //         map(news => news),
-        //         shareReplay()
-        //     );
+        this.news$ = this.newsHttpService.findAllNews()
+            .pipe(
+                map(news => news),
+                shareReplay()
+            );
     }
-
 }

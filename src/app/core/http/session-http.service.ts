@@ -3,16 +3,10 @@ import { Injectable } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
-import { environment } from '../../../environments/environment';
+import { ContentTypeConsts } from '../../shared/consts/content-type.const';
+import { SessionConsts } from '../../shared/consts/session.const';
 import { Session } from '../../shared/models/session.model';
 import { ObjectService } from '../services/utils/object.service';
-
-const BASE_URL = `${environment.apiBaseUrl}/sessions`;
-const SESSION_ME_URL = `${BASE_URL}/me`;
-const SESSION_ME_DELETE_URL = `${BASE_URL}/me:delete`;
-const TOKEN_NAME = 'XSRF-TOKEN';
-const CONTENT_TYPE_FORM_UNLECODED = 'application/x-www-form-unlecoded';
-const SESSION_GENERATION_TIME_NAME = 'SGT';
 
 @Injectable({
     providedIn: 'root'
@@ -31,7 +25,7 @@ export class SessionHttpService {
      * @returns クッキーのトークン
      */
     getToken(): string {
-        return this.cookieService.get(TOKEN_NAME);
+        return this.cookieService.get(SessionConsts.TOKEN_NAME);
     }
 
     /**
@@ -39,12 +33,12 @@ export class SessionHttpService {
      */
     getApiSession(): Observable<Session> {
         if (this.objService.isNotNullAndUndefined(this.getSavedSession())
-            && this.cookieService.get(SESSION_GENERATION_TIME_NAME) === this.sessionGenerationTime) {
+            && this.cookieService.get(SessionConsts.GENERATION_TIME_NAME) === this.sessionGenerationTime) {
             return this.sessionSubject.asObservable();
         }
 
         return this.http
-            .get<Session>(SESSION_ME_URL, { withCredentials: true })
+            .get<Session>(SessionConsts.ME_URL, { withCredentials: true })
             .pipe(tap(this.saveSession));
     }
 
@@ -67,12 +61,12 @@ export class SessionHttpService {
         const pass = encodeURIComponent(formValue.password);
         const body = `accountName=${accountName}&password=${pass}`;
         const options = {
-            headers: new HttpHeaders({'Content-Type': CONTENT_TYPE_FORM_UNLECODED}),
+            headers: new HttpHeaders({'Content-Type': ContentTypeConsts.FORM_UNLECODED}),
             withCredentials: true
         };
 
         return this.http
-            .post<Session>(BASE_URL, body, options)
+            .post<Session>(SessionConsts.BASE_URL, body, options)
             .pipe(tap(this.saveSession));
     }
 
@@ -87,7 +81,7 @@ export class SessionHttpService {
         };
 
         return this.http
-            .post<void>(SESSION_ME_DELETE_URL, options)
+            .post<void>(SessionConsts.ME_DELETE_URL, options)
             .pipe(tap(this.deleteSavedSession));
     }
 
@@ -98,7 +92,7 @@ export class SessionHttpService {
     private saveSession(session: Session): void {
         this.sessionSubject.next(session);
         this.sessionGenerationTime = new Date().valueOf().toString();
-        this.cookieService.set(SESSION_GENERATION_TIME_NAME, this.sessionGenerationTime);
+        this.cookieService.set(SessionConsts.GENERATION_TIME_NAME, this.sessionGenerationTime);
     }
 
     /**
@@ -106,7 +100,7 @@ export class SessionHttpService {
      */
     private deleteSavedSession(): void {
         this.sessionSubject.next(null);
-        this.cookieService.delete(SESSION_GENERATION_TIME_NAME);
+        this.cookieService.delete(SessionConsts.GENERATION_TIME_NAME);
         window.sessionStorage.clear();
     }
 }

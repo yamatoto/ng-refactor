@@ -1,20 +1,24 @@
 <mat-sidenav-container fullscreen opened="true">
     <mat-sidenav #start>
         <mat-nav-list (click)="start.close()">
+            <a mat-list-item routerLink="/">
+                <mat-icon>home</mat-icon>
+                <span>HOME</span>
+            </a>
             <a mat-list-item routerLink="/courses">
-                <mat-icon>library_books</mat-icon>
+                <mat-icon>input</mat-icon>
                 <span>商品登録</span>
             </a>
             <a mat-list-item routerLink="/courses">
-                <mat-icon>library_books</mat-icon>
+                <mat-icon>list</mat-icon>
                 <span>商品一覧</span>
             </a>
             <a mat-list-item routerLink="/courses">
-                <mat-icon>library_books</mat-icon>
+                <mat-icon>list</mat-icon>
                 <span>発注一覧</span>
             </a>
             <a mat-list-item routerLink="/courses">
-                <mat-icon>library_books</mat-icon>
+                <mat-icon>schedule</mat-icon>
                 <span>納品スケジュール</span>
             </a>
 

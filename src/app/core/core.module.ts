@@ -3,6 +3,9 @@ import { SharedModule } from '../shared/shared.module';
 import { NavComponent } from './nav/nav.component';
 
 @NgModule({
+    declarations: [
+        NavComponent
+    ],
     imports: [
         SharedModule
     ],
@@ -10,9 +13,6 @@ import { NavComponent } from './nav/nav.component';
         NavComponent
     ],
     providers: [
-    ],
-    declarations: [
-        NavComponent
     ]
 })
 export class CoreModule {

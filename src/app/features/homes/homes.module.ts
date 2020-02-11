@@ -19,7 +19,6 @@ import { NewsComponent } from './pages/news/news.component';
         HomesRoutingModule,
         TranslateModule.forChild({})
     ],
-    providers: [],
-    bootstrap: [],
+    providers: []
 })
 export class HomesModule { }

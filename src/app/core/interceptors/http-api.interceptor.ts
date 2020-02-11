@@ -3,9 +3,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
-import { environment } from '../../../environments/environment';
-
-const SESSION_URL = `${environment.apiBaseUrl}/session`;
+import { SessionConsts } from '../../shared/consts/session.const';
 
 @Injectable()
 export class HttpApiInterceptor implements HttpInterceptor {
@@ -52,7 +50,7 @@ export class HttpApiInterceptor implements HttpInterceptor {
      */
     private isRedirectLogin(req: HttpRequest<any>): boolean {
         if (this.router.url.startsWith('/login')
-        || req.url.startsWith(SESSION_URL)) {
+        || req.url.startsWith(SessionConsts.BASE_URL)) {
             return false;
         }
         return true;

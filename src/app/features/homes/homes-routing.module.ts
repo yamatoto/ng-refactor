@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
+import { NewsComponent } from './pages/news/news.component';
 
 const homeRoutes: Routes = [
     {
@@ -13,9 +14,9 @@ const homeRoutes: Routes = [
                 // data: { breadcrumb: null },
             },
             {
-                // path: 'news/:id',
-                // component: NewsDetailComponent,
-                // data: { breadcrumb: 'お知らせ' },
+                path: 'news/:id',
+                component: NewsComponent,
+                data: { breadcrumb: 'お知らせ' },
             }
         ]
     }
