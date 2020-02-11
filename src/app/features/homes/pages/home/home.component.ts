@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { NewsHttpService } from '@core/http/news-http.service';
+import { News } from '@shared/models/news.model';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
-import { NewsHttpService } from '../../../../core/http/news-http.service';
-import { News } from '../../../../shared/models/news.model';
 
 @Component({
   selector: 'app-home',

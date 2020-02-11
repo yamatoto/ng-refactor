@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
+import { News } from '@shared/models/news.model';
 import { Observable } from 'rxjs';
-import { News } from '../../shared/models/news.model';
 import { ApiService } from './api.service';
 
 const URL = '/news';

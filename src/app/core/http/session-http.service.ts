@@ -1,12 +1,12 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { ObjectService } from '@core/services/utils/object.service';
+import { ContentTypeConsts } from '@shared/consts/content-type.const';
+import { SessionConsts } from '@shared/consts/session.const';
+import { Session } from '@shared/models/session.model';
 import { CookieService } from 'ngx-cookie-service';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
-import { ContentTypeConsts } from '../../shared/consts/content-type.const';
-import { SessionConsts } from '../../shared/consts/session.const';
-import { Session } from '../../shared/models/session.model';
-import { ObjectService } from '../services/utils/object.service';
 
 @Injectable({
   providedIn: 'root'
@@ -22,15 +22,15 @@ export class SessionHttpService {
   ) { }
 
   /**
-     * @returns クッキーのトークン
-     */
+   * @returns クッキーのトークン
+   */
   getToken(): string {
     return this.cookieService.get(SessionConsts.TOKEN_NAME);
   }
 
   /**
-     * @returns APIセッション
-     */
+   * @returns APIセッション
+   */
   getApiSession(): Observable<Session> {
     if (this.objService.isNotNullAndUndefined(this.getSavedSession())
             && this.cookieService.get(SessionConsts.GENERATION_TIME_NAME) === this.sessionGenerationTime) {
@@ -43,17 +43,17 @@ export class SessionHttpService {
   }
 
   /**
-     * @returns 保存しているセッション
-     */
+   * @returns 保存しているセッション
+   */
   getSavedSession(): Session {
     return this.sessionSubject.getValue();
   }
 
   /**
-     * APIセッションを作成する.
-     * @param formValue ログインフォームの入力値
-     * @returns レスポンス
-     */
+   * APIセッションを作成する.
+   * @param formValue ログインフォームの入力値
+   * @returns レスポンス
+   */
   createApiSession(formValue: { companyCode: string; accoutName: string; password: string }): Observable<Session> {
     this.deleteSavedSession();
 
@@ -71,8 +71,8 @@ export class SessionHttpService {
   }
 
   /**
-     * APIセッションを削除する.
-     */
+   * APIセッションを削除する.
+   */
   deleteApiSession(): Observable<void> {
     const HEADERS = new HttpHeaders({ 'x-xsrf-token': this.getToken() });
     const options = {
@@ -86,9 +86,9 @@ export class SessionHttpService {
   }
 
   /**
-     * セッションを保存する.
-     * @param session セッション
-     */
+   * セッションを保存する.
+   * @param session セッション
+   */
   private saveSession(session: Session): void {
     this.sessionSubject.next(session);
     this.sessionGenerationTime = new Date().valueOf().toString();
@@ -96,8 +96,8 @@ export class SessionHttpService {
   }
 
   /**
-     * 保存済のセッションを削除する.
-     */
+   * 保存済のセッションを削除する.
+   */
   private deleteSavedSession(): void {
     this.sessionSubject.next(null);
     this.cookieService.delete(SessionConsts.GENERATION_TIME_NAME);

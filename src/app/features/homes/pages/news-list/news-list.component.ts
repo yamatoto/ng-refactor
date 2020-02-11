@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { NEWS_CATEGORY_DICTIONARY } from '../../../../shared/dictionaries/news-catogory.dictionary';
-import { News } from '../../../../shared/models/news.model';
+import { NEWS_CATEGORY_DICTIONARY } from '@shared/dictionaries/news-catogory.dictionary';
+import { News } from '@shared/models/news.model';
 
 @Component({
   selector: 'app-news-list',
@@ -20,7 +20,6 @@ export class NewsListComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log('this.news:::', this.news);
     this.dataSource = this.news;
   }
 }

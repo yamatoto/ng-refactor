@@ -1,4 +1,4 @@
-import { Auth } from '../enums/auth.enum';
+import { Auth } from '@shared/enums/auth.enum';
 
 export class AuthConsts {
   /** 社内権限. */

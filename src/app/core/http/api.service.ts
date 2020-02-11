@@ -1,12 +1,12 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { ObjectService } from '@core/services/utils/object.service';
+import { environment } from '@env/environment';
+import { ContentTypeConsts } from '@shared/consts/content-type.const';
+import { CustomEncoder } from '@shared/lib/custom-encoder.lib';
+import { GenericList } from '@shared/models/generic-list.mode';
 import { Observable } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
-import { environment } from '../../../environments/environment';
-import { ContentTypeConsts } from '../../shared/consts/content-type.const';
-import { CustomEncoder } from '../../shared/lib/custom-encoder.lib';
-import { GenericList } from '../../shared/models/generic-list.mode';
-import { ObjectService } from '../services/utils/object.service';
 import { SessionHttpService } from './session-http.service';
 
 @Injectable({

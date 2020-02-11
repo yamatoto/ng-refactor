@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AppState } from '@app/reducers';
+import { AuthHttpService } from '@core/http/auth-http.service';
+import { LoginFormService } from '@core/services/login-form.service';
 import { Store } from '@ngrx/store';
 import { noop } from 'rxjs';
 import { tap } from 'rxjs/operators';
-import { AuthHttpService } from '../../http/auth-http.service';
 import { login } from '../auth.actions';
-import { AppState } from './../../../reducers/index';
-import { LoginFormService } from './../../services/login-form.service';
 
 @Component({
   selector: 'app-login',
@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
       .pipe(
         tap(user => {
           this.store.dispatch(login({ user }));
-          this.router.navigateByUrl('home');
+          this.router.navigateByUrl('/home');
         })
       ).subscribe(
         noop,

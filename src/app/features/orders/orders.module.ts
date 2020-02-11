@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 
 @NgModule({
-    declarations: [
-    ],
-    imports: [
-    ],
-    providers: [],
-    bootstrap: []
+  declarations: [
+  ],
+  imports: [
+  ],
+  providers: [],
+  bootstrap: []
 })
 export class OrdersModule { }

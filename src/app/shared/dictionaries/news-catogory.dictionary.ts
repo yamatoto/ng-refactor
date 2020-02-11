@@ -1,4 +1,4 @@
-import { NewsCategory } from '../enums/news-catogory.enum';
+import { NewsCategory } from '@shared/enums/news-catogory.enum';
 
 export const NEWS_CATEGORY_DICTIONARY = {
   [NewsCategory.System]: 'システム',

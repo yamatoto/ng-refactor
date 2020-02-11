@@ -4,6 +4,8 @@ import localeja from '@angular/common/locales/ja';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { environment } from '@env/environment';
+import { LoginModule } from '@features/logins/login.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { EntityDataModule } from '@ngrx/data';
 import { EffectsModule } from '@ngrx/effects';
@@ -13,10 +15,8 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { CookieService } from 'ngx-cookie-service';
-import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AuthModule } from './core/auth/auth.module';
 import { CoreModule } from './core/core.module';
 import { HttpApiInterceptor } from './core/interceptors/http-api.interceptor';
 import { metaReducers, reducers } from './reducers';
@@ -43,7 +43,7 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
         deps: [HttpClient]
       }
     }),
-    AuthModule.forRoot(),
+    LoginModule,
     StoreModule.forRoot(reducers, {
       metaReducers,
       runtimeChecks: {

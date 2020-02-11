@@ -1,18 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from '@core/auth/auth.guard';
 import { HomeComponent } from './pages/home/home.component';
 import { NewsComponent } from './pages/news/news.component';
 
-const homeRoutes: Routes = [
+const routes: Routes = [
   {
     path: '',
-    data: { breadcrumb: 'ホーム' },
+    canActivate: [AuthGuard],
     children: [
-      {
-        path: '',
-        component: HomeComponent,
-        // data: { breadcrumb: null },
-      },
+      { path: '', redirectTo: '/home', pathMatch: 'full' },
+      { path: 'home', component: HomeComponent },
       {
         path: '/news/:id',
         component: NewsComponent,
@@ -23,7 +21,7 @@ const homeRoutes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(homeRoutes)],
+  imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
 export class HomesRoutingModule { }

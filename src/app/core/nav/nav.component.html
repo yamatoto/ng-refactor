@@ -1,48 +1,48 @@
 <mat-sidenav-container fullscreen opened="true">
-    <mat-sidenav #start>
-        <mat-nav-list (click)="start.close()">
-            <a mat-list-item routerLink="/">
-                <mat-icon>home</mat-icon>
-                <span>HOME</span>
-            </a>
-            <a mat-list-item routerLink="/courses">
-                <mat-icon>input</mat-icon>
-                <span>商品登録</span>
-            </a>
-            <a mat-list-item routerLink="/courses">
-                <mat-icon>list</mat-icon>
-                <span>商品一覧</span>
-            </a>
-            <a mat-list-item routerLink="/courses">
-                <mat-icon>list</mat-icon>
-                <span>発注一覧</span>
-            </a>
-            <a mat-list-item routerLink="/courses">
-                <mat-icon>schedule</mat-icon>
-                <span>納品スケジュール</span>
-            </a>
+  <mat-sidenav #start>
+    <mat-nav-list (click)="start.close()">
+      <a mat-list-item routerLink="/">
+        <mat-icon>home</mat-icon>
+        <span>HOME</span>
+      </a>
+      <a mat-list-item routerLink="/courses">
+        <mat-icon>input</mat-icon>
+        <span>商品登録</span>
+      </a>
+      <a mat-list-item routerLink="/courses">
+        <mat-icon>list</mat-icon>
+        <span>商品一覧</span>
+      </a>
+      <a mat-list-item routerLink="/courses">
+        <mat-icon>list</mat-icon>
+        <span>発注一覧</span>
+      </a>
+      <a mat-list-item routerLink="/courses">
+        <mat-icon>schedule</mat-icon>
+        <span>納品スケジュール</span>
+      </a>
 
-            <a mat-list-item (click)="logout()">
-                <mat-icon>exit_to_app</mat-icon>
-                <span>ログアウト</span>
-            </a>
-        </mat-nav-list>
-    </mat-sidenav>
+      <a mat-list-item (click)="logout()">
+        <mat-icon>exit_to_app</mat-icon>
+        <span>ログアウト</span>
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
 
-    <mat-toolbar color="primary">
-        <button
-            class="menu-button"
-            mat-icon-button
-            (click)="start.open('mouse')"
-            *ngIf="isLoggedIn$ | async"
-        >
-            <mat-icon>メニュー</mat-icon>
-        </button>
-    </mat-toolbar>
+  <mat-toolbar color="primary">
+    <button
+      class="menu-button"
+      mat-icon-button
+      (click)="start.open('mouse')"
+      *ngIf="isLoggedIn$ | async"
+    >
+      <mat-icon>メニュー</mat-icon>
+    </button>
+  </mat-toolbar>
 
-    <div class="spinner-container" *ngIf="loading">
-        <mat-spinner></mat-spinner>
-    </div>
+  <div class="spinner-container" *ngIf="loading">
+    <mat-spinner></mat-spinner>
+  </div>
 
-    <ng-content></ng-content>
+  <ng-content></ng-content>
 </mat-sidenav-container>

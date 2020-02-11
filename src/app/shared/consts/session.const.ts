@@ -1,4 +1,4 @@
-import { environment } from '../../../environments/environment';
+import { environment } from '@env/environment';
 
 export class SessionConsts {
   public static readonly BASE_URL = `${environment.apiBaseUrl}/sessions`;

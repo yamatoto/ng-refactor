@@ -4,10 +4,10 @@ import { Injectable } from '@angular/core';
  * 日付サービス.
  */
 @Injectable({
-    providedIn: 'root'
+  providedIn: 'root'
 })
 export class DateService {
 
-    constructor() { }
+  constructor() { }
 
 }
