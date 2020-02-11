@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { NEWS_CATEGORY_DICTIONARY } from '../../../../shared/dictionaries/news-catogory.dictionary';
 import { News } from '../../../../shared/models/news.model';
 
 @Component({
@@ -8,11 +9,13 @@ import { News } from '../../../../shared/models/news.model';
 })
 export class NewsListComponent implements OnInit {
   @Input()
-  news: News[];
+  private news: News[];
 
-  displayedColumns = ['categoryId', 'title', 'content', 'openedAt'];
+  readonly NEWS_CATEGORY = NEWS_CATEGORY_DICTIONARY;
 
-  dataSource;
+  displayedColumns = ['categoryId', 'openedAt', 'title'];
+
+  dataSource: News[];
 
   constructor() { }
 

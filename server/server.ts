@@ -14,5 +14,5 @@ initRestApi(app);
 app.use(apiErrorHandler);
 
 const httpServer = app.listen(8090, () => {
-    console.log('HTTP REST API Server running at http://localhost:' + (httpServer.address() as AddressInfo).port);
+  console.log('HTTP REST API Server running at http://localhost:' + (httpServer.address() as AddressInfo).port);
 });
