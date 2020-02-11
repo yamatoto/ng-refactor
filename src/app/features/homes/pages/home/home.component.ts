@@ -11,7 +11,8 @@ import { News } from '../../../../shared/models/news.model';
 })
 export class HomeComponent implements OnInit {
 
-    loading$: Observable<boolean>
+    loading$: Observable<boolean>;
+
     news$: Observable<News[]>;
 
     constructor(
@@ -22,9 +23,6 @@ export class HomeComponent implements OnInit {
         this.reload();
     }
 
-    /**
-     * リロード処理.
-     */
     reload(): void {
         this.news$ = this.newsHttpService.findAllNews()
             .pipe(

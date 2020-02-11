@@ -5,7 +5,9 @@ import { ApiService } from './api.service';
 
 const URL = '/news';
 
-@Injectable()
+@Injectable({
+    providedIn: 'root'
+})
 export class NewsHttpService {
     constructor(
         private apiService: ApiService
@@ -13,5 +15,9 @@ export class NewsHttpService {
 
     findAllNews(): Observable<News[]> {
         return this.apiService.get(URL);
+    }
+
+    findNewsById(id: number): Observable<News> {
+        return this.apiService.get(`${URL}/${id}`);
     }
 }

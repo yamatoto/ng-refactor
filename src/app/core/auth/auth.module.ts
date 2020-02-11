@@ -10,14 +10,14 @@ import { LoginComponent } from './login/login.component';
 import { authReducer } from './reducers/index';
 
 @NgModule({
-    declarations: [
-        LoginComponent
-    ],
     imports: [
         SharedModule,
         AuthRoutingModule,
         StoreModule.forFeature('auth', authReducer),
         EffectsModule.forFeature([AuthEffects])
+    ],
+    declarations: [
+        LoginComponent
     ],
     exports: [
         LoginComponent

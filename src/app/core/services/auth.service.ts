@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AuthConsts } from '../../shared/consts/auth-consts';
+import { AuthConsts } from '../../shared/consts/auth.const';
 import { Auth } from '../../shared/enums/auth.enum';
 import { Session } from '../../shared/models/session.model';
 

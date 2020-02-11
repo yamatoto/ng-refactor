@@ -1,4 +1,10 @@
 <mat-card-title>お知らせ</mat-card-title>
+<ng-container *ngFor="let data of news">
+    <div>{{ data.categoryId }}</div>
+    <div>{{ data.title }}</div>
+    <div>{{ data.content }}</div>
+    <div>{{ data.id }}</div>
+</ng-container>
 <!--
         テーブル
         スクロール

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { News } from '../../../../shared/models/news.model';
 
 @Component({
     selector: 'app-news-list',
@@ -6,6 +7,10 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./news-list.component.scss']
 })
 export class NewsListComponent implements OnInit {
+    @Input()
+    news: News[];
+
+    displayedColumns = ['categoryId', 'title', 'content', 'openedAt'];
 
     constructor() { }
 

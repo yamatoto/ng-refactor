@@ -18,7 +18,6 @@ import { NewsComponent } from './pages/news/news.component';
         SharedModule,
         HomesRoutingModule,
         TranslateModule.forChild({})
-    ],
-    providers: []
+    ]
 })
 export class HomesModule { }

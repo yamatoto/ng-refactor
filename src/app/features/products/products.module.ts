@@ -18,8 +18,6 @@ import { ProductsRoutingModule } from './products-routing.module';
     imports: [
         CommonModule,
         ProductsRoutingModule
-    ],
-    providers: [],
-    bootstrap: []
+    ]
 })
 export class ProductsModule { }

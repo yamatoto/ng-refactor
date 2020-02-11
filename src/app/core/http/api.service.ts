@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { tap } from 'rxjs/operators';
+import { map, tap } from 'rxjs/operators';
 import { environment } from '../../../environments/environment';
 import { ContentTypeConsts } from '../../shared/consts/content-type.const';
 import { CustomEncoder } from '../../shared/lib/custom-encoder.lib';
@@ -35,7 +35,10 @@ export class ApiService {
 
         return this.http
             .get<RES_MODEL>(API_URL, options)
-            .pipe(tap(endLogger, console.error));
+            .pipe(
+                tap(endLogger, console.error),
+                map(res => res['payload'])
+            );
     }
 
     /**
@@ -59,7 +62,10 @@ export class ApiService {
 
         return this.http
             .post<RES_MODEL>(API_URL, model, options)
-            .pipe(tap(endLogger, console.error));
+            .pipe(
+                tap(endLogger, console.error),
+                map(res => res['payload'])
+            );
     }
 
     /**
@@ -78,7 +84,10 @@ export class ApiService {
 
         return this.http
             .get<GenericList<RES_MODEL>>(API_URL, options)
-            .pipe(tap(endLogger, console.error));
+            .pipe(
+                tap(endLogger, console.error),
+                map(res => res['payload'])
+            );
     }
 
     /**
@@ -100,7 +109,10 @@ export class ApiService {
 
         return this.http
             .post<GenericList<RES_MODEL>>(API_URL, model, options)
-            .pipe(tap(endLogger, console.error));
+            .pipe(
+                tap(endLogger, console.error),
+                map(res => res['payload'])
+            );
     }
 
     /**
@@ -122,7 +134,10 @@ export class ApiService {
 
         return this.http
             .post<RES_MODEL>(API_URL, model, options)
-            .pipe(tap(endLogger, console.error));
+            .pipe(
+                tap(endLogger, console.error),
+                map(res => res['payload'])
+            );
     }
 
     /**
@@ -144,7 +159,10 @@ export class ApiService {
 
         return this.http
             .put<GenericList<RES_MODEL>>(API_URL, model, options)
-            .pipe(tap(endLogger, console.error));
+            .pipe(
+                tap(endLogger, console.error),
+                map(res => res['payload'])
+            );
     }
 
     /**
@@ -165,7 +183,10 @@ export class ApiService {
 
         return this.http
             .delete<RES_MODEL>(API_URL, options)
-            .pipe(tap(endLogger, console.error));
+            .pipe(
+                tap(endLogger, console.error),
+                map(res => res['payload'])
+            );
     }
 
     /**
@@ -185,7 +206,10 @@ export class ApiService {
             .get(API_URL, {
                 params: API_PARAMS, withCredentials: true, responseType: 'blob', observe: 'response'
             })
-            .pipe(tap(endLogger, console.error));
+            .pipe(
+                tap(endLogger, console.error),
+                map(res => res['payload'])
+            );
     }
 
     /**
@@ -206,7 +230,10 @@ export class ApiService {
 
         return this.http
             .post<RES_MODEL>(API_URL, formValue, options)
-            .pipe(tap(endLogger, console.error));
+            .pipe(
+                tap(endLogger, console.error),
+                map(res => res['payload'])
+            );
     }
 
     /**

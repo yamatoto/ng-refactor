@@ -11,8 +11,6 @@ import { NavComponent } from './nav/nav.component';
     ],
     exports: [
         NavComponent
-    ],
-    providers: [
     ]
 })
 export class CoreModule {

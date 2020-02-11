@@ -10,16 +10,17 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatSliderModule } from '@angular/material/slider';
+import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
-    declarations: [
-    ],
     imports: [
         CommonModule,
         FormsModule,
         ReactiveFormsModule
+    ],
+    declarations: [
     ],
     exports: [
         CommonModule,
@@ -35,7 +36,8 @@ import { TranslateModule } from '@ngx-translate/core';
         MatSidenavModule,
         MatProgressSpinnerModule,
         MatListModule,
-        MatToolbarModule
+        MatToolbarModule,
+        MatTableModule
     ]
 })
 export class SharedModule { }
