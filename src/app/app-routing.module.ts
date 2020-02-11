@@ -1,8 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './core/auth/auth.guard';
+import { LoginComponent } from './core/auth/login/login.component';
 
 const appRoutes: Routes = [
+  {
+    path: 'login',
+    component: LoginComponent
+  },
   {
     path: 'home',
     loadChildren: () => import('./features/homes/homes.module').then(m => m.HomesModule),
@@ -25,12 +30,12 @@ const appRoutes: Routes = [
   // },
   {
     path: '',
-    redirectTo: '/home',
+    redirectTo: '/login',
     pathMatch: 'full'
   },
   {
     path: '**',
-    redirectTo: '/',
+    redirectTo: '/login',
     pathMatch: 'full'
   },
 ];

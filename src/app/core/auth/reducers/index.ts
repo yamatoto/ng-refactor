@@ -5,25 +5,25 @@ import { User } from './../../../shared/models/user.model';
 export const authFeatureKey = 'auth';
 
 export interface AuthState {
-    user: User;
+  user: User;
 }
 
 export const initialAuthState: AuthState = {
-    user: undefined
+  user: undefined
 };
 
 export const authReducer = createReducer(
-    initialAuthState,
+  initialAuthState,
 
-    on(AuthActions.login, (state, action) => {
-        return {
-            user: action.user
-        };
-    }),
+  on(AuthActions.login, (state, action) => {
+    return {
+      user: action.user
+    };
+  }),
 
-    on(AuthActions.logout, (state, action) => {
-        return {
-            user: undefined
-        };
-    })
+  on(AuthActions.logout, (state, action) => {
+    return {
+      user: undefined
+    };
+  })
 );

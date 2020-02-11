@@ -14,7 +14,7 @@ const homeRoutes: Routes = [
         // data: { breadcrumb: null },
       },
       {
-        path: 'news/:id',
+        path: '/news/:id',
         component: NewsComponent,
         data: { breadcrumb: 'お知らせ' },
       }

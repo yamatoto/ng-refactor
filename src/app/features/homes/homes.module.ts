@@ -8,16 +8,16 @@ import { NewsListComponent } from './pages/news-list/news-list.component';
 import { NewsComponent } from './pages/news/news.component';
 
 @NgModule({
-    declarations: [
-        HomeComponent,
-        NewsListComponent,
-        NewsComponent,
-        ContactInfoComponent
-    ],
-    imports: [
-        SharedModule,
-        HomesRoutingModule,
-        TranslateModule.forChild({})
-    ]
+  declarations: [
+    HomeComponent,
+    NewsListComponent,
+    NewsComponent,
+    ContactInfoComponent
+  ],
+  imports: [
+    SharedModule,
+    HomesRoutingModule,
+    TranslateModule.forChild({})
+  ]
 })
 export class HomesModule { }
