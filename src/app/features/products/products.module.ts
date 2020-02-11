@@ -8,16 +8,16 @@ import { ProductViewComponent } from './pages/product-view/product-view.componen
 import { ProductsRoutingModule } from './products-routing.module';
 
 @NgModule({
-    declarations: [
-        PreProductNewComponent,
-        PreProductEditComponent,
-        ProductEditComponent,
-        ProductViewComponent,
-        ProductListComponent
-    ],
-    imports: [
-        CommonModule,
-        ProductsRoutingModule
-    ]
+  declarations: [
+    PreProductNewComponent,
+    PreProductEditComponent,
+    ProductEditComponent,
+    ProductViewComponent,
+    ProductListComponent
+  ],
+  imports: [
+    CommonModule,
+    ProductsRoutingModule
+  ]
 })
 export class ProductsModule { }

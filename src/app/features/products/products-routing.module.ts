@@ -8,45 +8,45 @@ import { ProductListComponent } from './pages/product-list/product-list.componen
 import { ProductViewComponent } from './pages/product-view/product-view.component';
 
 const productRoutes: Routes = [
-    {
+  {
+    path: '',
+    data: { breadcrumb: '商品一覧' },
+    canActivate: [AuthGuard],
+    children: [
+      {
         path: '',
-        data: { breadcrumb: '商品一覧' },
-        canActivate: [AuthGuard],
-        children: [
-            {
-                path: '',
-                component: ProductListComponent,
-                data: { breadcrumb: null }
-            },
-            {
-                path: 'new',
-                component: PreProductNewComponent,
-                data: { breadcrumb: '仮品番登録' }
-            },
-            {
-                path: 'pre-edit/:id',
-                component: PreProductEditComponent,
-                data: { breadcrumb: '仮品番編集' }
-            },
-            {
-                path: 'edit/:id',
-                component: ProductEditComponent,
-                data: {
-                    breadcrumb: '品番編集'
-                    // , authFn: AuthUtils.isInternalUser
-                }
-            },
-            {
-                path: 'view/:id',
-                component: ProductViewComponent,
-                data: { breadcrumb: '品番参照' }
-            }
-        ]
-    }
+        component: ProductListComponent,
+        data: { breadcrumb: null }
+      },
+      {
+        path: 'new',
+        component: PreProductNewComponent,
+        data: { breadcrumb: '仮品番登録' }
+      },
+      {
+        path: 'pre-edit/:id',
+        component: PreProductEditComponent,
+        data: { breadcrumb: '仮品番編集' }
+      },
+      {
+        path: 'edit/:id',
+        component: ProductEditComponent,
+        data: {
+          breadcrumb: '品番編集'
+          // , authFn: AuthUtils.isInternalUser
+        }
+      },
+      {
+        path: 'view/:id',
+        component: ProductViewComponent,
+        data: { breadcrumb: '品番参照' }
+      }
+    ]
+  }
 ];
 
 @NgModule({
-    imports: [RouterModule.forChild(productRoutes)],
-    exports: [RouterModule]
+  imports: [RouterModule.forChild(productRoutes)],
+  exports: [RouterModule]
 })
 export class ProductsRoutingModule { }

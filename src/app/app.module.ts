@@ -22,49 +22,49 @@ import { HttpApiInterceptor } from './core/interceptors/http-api.interceptor';
 import { metaReducers, reducers } from './reducers';
 registerLocaleData(localeja, 'ja');
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
-    return new TranslateHttpLoader(http, '/assets/i18n/', '.json?t=' + new Date().getTime());
+  return new TranslateHttpLoader(http, '/assets/i18n/', '.json?t=' + new Date().getTime());
 }
 
 @NgModule({
-    declarations: [
-        AppComponent
-    ],
-    imports: [
-        BrowserModule,
-        BrowserAnimationsModule,
-        NgbModule,
-        AppRoutingModule,
-        CoreModule,
-        HttpClientModule,
-        TranslateModule.forRoot({
-            loader: {
-                provide: TranslateLoader,
-                useFactory: HttpLoaderFactory,
-                deps: [HttpClient]
-            }
-        }),
-        AuthModule.forRoot(),
-        StoreModule.forRoot(reducers, {
-            metaReducers,
-            runtimeChecks: {
-                strictStateImmutability: true,
-                strictActionImmutability: true,
-                strictActionSerializability: true,
-                strictStateSerializability: true
-            }
-        }),
-        StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
-        EffectsModule.forRoot([]),
-        EntityDataModule.forRoot({}),
-        StoreRouterConnectingModule.forRoot({
-            stateKey: 'router',
-            routerState: RouterState.Minimal
-        })
-    ],
-    providers: [
-        CookieService,
-        {provide: HTTP_INTERCEPTORS, useClass: HttpApiInterceptor, multi: true}
-    ],
-    bootstrap: [AppComponent]
+  declarations: [
+    AppComponent
+  ],
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    NgbModule,
+    AppRoutingModule,
+    CoreModule,
+    HttpClientModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    }),
+    AuthModule.forRoot(),
+    StoreModule.forRoot(reducers, {
+      metaReducers,
+      runtimeChecks: {
+        strictStateImmutability: true,
+        strictActionImmutability: true,
+        strictActionSerializability: true,
+        strictStateSerializability: true
+      }
+    }),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
+    EffectsModule.forRoot([]),
+    EntityDataModule.forRoot({}),
+    StoreRouterConnectingModule.forRoot({
+      stateKey: 'router',
+      routerState: RouterState.Minimal
+    })
+  ],
+  providers: [
+    CookieService,
+    {provide: HTTP_INTERCEPTORS, useClass: HttpApiInterceptor, multi: true}
+  ],
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

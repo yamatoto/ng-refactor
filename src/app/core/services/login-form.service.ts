@@ -3,14 +3,14 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Injectable()
 export class LoginFormService {
-    form: FormGroup;
+  form: FormGroup;
 
-    constructor(
-        private fb: FormBuilder
-    ) {
-        this.form = this.fb.group({
-            email: [],
-            password: ['test', Validators.required]
-        });
-    }
+  constructor(
+    private fb: FormBuilder
+  ) {
+    this.form = this.fb.group({
+      email: [],
+      password: ['test', Validators.required]
+    });
+  }
 }

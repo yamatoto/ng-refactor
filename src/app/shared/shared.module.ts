@@ -15,29 +15,29 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
-    imports: [
-        CommonModule,
-        FormsModule,
-        ReactiveFormsModule
-    ],
-    declarations: [
-    ],
-    exports: [
-        CommonModule,
-        TranslateModule,
-        FormsModule,
-        ReactiveFormsModule,
-        MatCardModule,
-        MatInputModule,
-        MatButtonModule,
-        MatMenuModule,
-        MatIconModule,
-        MatSliderModule,
-        MatSidenavModule,
-        MatProgressSpinnerModule,
-        MatListModule,
-        MatToolbarModule,
-        MatTableModule
-    ]
+  imports: [
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule
+  ],
+  declarations: [
+  ],
+  exports: [
+    CommonModule,
+    TranslateModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatCardModule,
+    MatInputModule,
+    MatButtonModule,
+    MatMenuModule,
+    MatIconModule,
+    MatSliderModule,
+    MatSidenavModule,
+    MatProgressSpinnerModule,
+    MatListModule,
+    MatToolbarModule,
+    MatTableModule
+  ]
 })
 export class SharedModule { }
