@@ -64,9 +64,7 @@
     "@typescript-eslint/parser": "^2.18.0",
     "codelyzer": "^5.1.2",
     "eslint": "^6.8.0",
-    "eslint-config-prettier": "^6.9.0",
     "eslint-plugin-html": "^6.0.0",
-    "eslint-plugin-prettier": "^3.1.2",
     "jasmine-core": "~3.4.0",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~4.1.0",
@@ -75,7 +73,6 @@
     "karma-jasmine": "~2.0.1",
     "karma-jasmine-html-reporter": "^1.4.0",
     "lodash": "^4.17.15",
-    "prettier": "^1.19.1",
     "protractor": "~5.4.0",
     "ts-node": "^8.6.2",
     "typescript": "^3.7.5"

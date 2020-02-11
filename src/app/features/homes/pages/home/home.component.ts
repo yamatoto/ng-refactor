@@ -5,29 +5,29 @@ import { NewsHttpService } from '../../../../core/http/news-http.service';
 import { News } from '../../../../shared/models/news.model';
 
 @Component({
-    selector: 'app-home',
-    templateUrl: './home.component.html',
-    styleUrls: ['./home.component.scss']
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
 
-    loading$: Observable<boolean>;
+  loading$: Observable<boolean>;
 
-    news$: Observable<News[]>;
+  news$: Observable<News[]>;
 
-    constructor(
-        private newsHttpService: NewsHttpService
-    ) { }
+  constructor(
+    private newsHttpService: NewsHttpService
+  ) { }
 
-    ngOnInit() {
-        this.reload();
-    }
+  ngOnInit() {
+    this.reload();
+  }
 
-    reload(): void {
-        this.news$ = this.newsHttpService.findAllNews()
-            .pipe(
-                map(news => news),
-                shareReplay()
-            );
-    }
+  reload(): void {
+    this.news$ = this.newsHttpService.findAllNews()
+      .pipe(
+        map(news => news),
+        shareReplay()
+      );
+  }
 }

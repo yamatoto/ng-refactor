@@ -23,11 +23,12 @@
         "@typescript-eslint"
     ],
     "settings": {
-        "html/html-extensions": [".html", ".we"],
-        "html/report-bad-indent": "error"
+        "html/html-extensions": [".html"],
+        "html/report-bad-indent": "error",
+        "html/indent": "+2"
     },
     "rules": {
-        "@typescript-eslint/indent": ["error", 4, {
+        "@typescript-eslint/indent": ["error", 2, {
             "SwitchCase": 1,
             "CallExpression": {
                 "arguments": "first"

@@ -2,19 +2,17 @@
     // ウィンドウ設定
     "window.closeWhenEmpty": false,
     "window.zoomLevel": 0,
-    // esLint,
+    // esLint
     "eslint.options": {
-        "extensions": [".html"]
+      "extensions": [".html"]
     },
     "eslint.validate": [
-        "javascript",
-        "html"
+      "html"
     ],
-    "prettier.tabWidth": 4,
     // HTML
-    "html.format.enable": true,
+    "html.format.enable": false,
     "html.format.endWithNewline": true,
-    "html.mirrorCursorOnMatchingTag": false,
+    "html.mirrorCursorOnMatchingTag": false, // 対応する HTML タグでカーソルのミラーリングを有効または無効にします。
     "html.format.contentUnformatted": "pre,code,textarea", // コンテンツを再フォーマットしてはならないタグをコンマで区切ってリストにする。'null' は、既定値の'pre' タグを表す。
     "html.format.wrapAttributes": "auto", // 属性を折り返す。
     "html.format.indentInnerHtml": true,
@@ -33,30 +31,31 @@
     "editor.glyphMargin": true, // 行の左端に余白を作る
     "editor.roundedSelection": true, // 選択範囲の角を丸める
     "editor.quickSuggestions": { // 補完候補の自動表示
-        "comments": false, // コメント内では無効
-        "strings": true, // 文字列内では有効
-        "other": true //  その他の場所で有効
+      "comments": false, // コメント内では無効
+      "strings": true, // 文字列内では有効
+      "other": true //  その他の場所で有効
     },
     "editor.formatOnType": true,
     "editor.formatOnPaste": false,
-    "editor.formatOnSave": false, // eslintの方を使う
+    "editor.formatOnSave": false, // codeActionsOnSaveの方を使う
     "editor.codeActionsOnSave": { // コード整形
-        "source.fixAll": true,
-        "source.organizeImports": true
+      "source.fixAll": true,
+      "source.organizeImports": true
     },
     "[html]": {
-        "editor.formatOnSave": true
+      "editor.formatOnSave": true,
+      "editor.tabSize": 2
     },
     "[scss]": {
-        "editor.formatOnSave": true
+      "editor.formatOnSave": true
     },
     "[css]": {
-        "editor.formatOnSave": true
+      "editor.formatOnSave": true
     },
     "[json]": {
-        "editor.formatOnSave": true,
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
+      "editor.formatOnSave": true
     },
+    "editor.tabSize": 2,
     "editor.folding": true, // コードの折りたたみを許可
     "editor.letterSpacing": -1, // 文字の間隔を詰める
     "editor.lineNumbers": "on", // 行番号の表示
@@ -91,24 +90,24 @@
     "files.encoding": "utf8",
     "files.trimFinalNewlines": true, // 不要な行の削除
     "files.exclude": { // エクスプローラーから除外するファイルとフォルダ
-        "**/.git": true,
-        "**/.svn": true,
-        "**/.hg": true,
-        "**/CVS": true,
-        "**/.DS_Store": true,
-        "**/bin": true,
-        "**/*.exe": true,
-        "**/*.o": true,
-        "**/*.obj": true,
-        "**/*.ilk": true,
-        "**/*.pdb": true,
-        "**/*.tlog": true,
-        "**/*.idb": true,
-        "**/*.dll": true,
-        "**.vs": true
+      "**/.git": true,
+      "**/.svn": true,
+      "**/.hg": true,
+      "**/CVS": true,
+      "**/.DS_Store": true,
+      "**/bin": true,
+      "**/*.exe": true,
+      "**/*.o": true,
+      "**/*.obj": true,
+      "**/*.ilk": true,
+      "**/*.pdb": true,
+      "**/*.tlog": true,
+      "**/*.idb": true,
+      "**/*.dll": true,
+      "**.vs": true
     },
     "files.watcherExclude": { // CPU使用の軽減.サイズの大きいファイルがあるとCPU使用率が高くなることがある。
-        "**/images/**": true
+      "**/images/**": true
     },
     //
     "breadcrumbs.enabled": true, // 階層リンク(パンくずリスト)の表示
@@ -119,31 +118,31 @@
     // ワークベンチ設定
     "workbench.iconTheme": "vscode-icons",
     "workbench.colorCustomizations": { // カラーテーマに上書きする個別の設定
-        "statusBar.background": "#000000", // ステータスバー背景色
-        "statusBar.noFolderBackground": "#000000",
-        "statusBar.foreground": "#ffffff", // ステータスバー前景色
-        "statusBar.noFolderForeground": "#ffffff",
-        "statusBar.border": "#ffffff", // ステータスバーの境界線
-        "sideBar.background": "#000000", // サイドバーの背景色
-        "sideBar.foreground": "#ffffff", // サイドバーの前景色
-        "sideBar.border": "#ffffff", // サイドバーの境界線
-        "activityBar.background": "#000000", // アクティビティバーの背景色
-        "activityBar.foreground": "#ffffff", // アクティビティバーの前景色
-        "activityBar.border": "#ffffff", // アクティビティバーの境界線
-        "editor.background": "#121817", // エディタ背景色
-        "editor.lineHighlightBackground": "#002255", // 選択している行の強調色
-        "editor.selectionBackground": "#660000", // 選択領域の強調色
-        "editorError.border": "#ff0000", // エラー部分の下線
-        "editorLineNumber.foreground": "#0077ffbb",
-        "editorLineNumber.activeForeground": "#ffffff",
-        "scrollbarSlider.background": "#0077ff99", // スクロールバーの色
-        "scrollbarSlider.hoverBackground": "#00ccffcc", // 移動中のスクロールバーの色
-        "tab.activeBorder": "#ffffff", // アクティブタブの下線
-        "tab.inactiveForeground": "#999999", // 非選択タブの文字色
-        "editorBracketMatch.background": "#ffff0077", // 対応する括弧の背景色
-        "editorSuggestWidget.selectedBackground": "#0044ff", // サジェスト欄,選択中項目の背景色
-        "scrollbar.shadow": "#0077ff99",
-        "editorLink.activeForeground": "#5555ce",
+      "statusBar.background": "#000000", // ステータスバー背景色
+      "statusBar.noFolderBackground": "#000000",
+      "statusBar.foreground": "#ffffff", // ステータスバー前景色
+      "statusBar.noFolderForeground": "#ffffff",
+      "statusBar.border": "#ffffff", // ステータスバーの境界線
+      "sideBar.background": "#000000", // サイドバーの背景色
+      "sideBar.foreground": "#ffffff", // サイドバーの前景色
+      "sideBar.border": "#ffffff", // サイドバーの境界線
+      "activityBar.background": "#000000", // アクティビティバーの背景色
+      "activityBar.foreground": "#ffffff", // アクティビティバーの前景色
+      "activityBar.border": "#ffffff", // アクティビティバーの境界線
+      "editor.background": "#121817", // エディタ背景色
+      "editor.lineHighlightBackground": "#002255", // 選択している行の強調色
+      "editor.selectionBackground": "#660000", // 選択領域の強調色
+      "editorError.border": "#ff0000", // エラー部分の下線
+      "editorLineNumber.foreground": "#0077ffbb",
+      "editorLineNumber.activeForeground": "#ffffff",
+      "scrollbarSlider.background": "#0077ff99", // スクロールバーの色
+      "scrollbarSlider.hoverBackground": "#00ccffcc", // 移動中のスクロールバーの色
+      "tab.activeBorder": "#ffffff", // アクティブタブの下線
+      "tab.inactiveForeground": "#999999", // 非選択タブの文字色
+      "editorBracketMatch.background": "#ffff0077", // 対応する括弧の背景色
+      "editorSuggestWidget.selectedBackground": "#0044ff", // サジェスト欄,選択中項目の背景色
+      "scrollbar.shadow": "#0077ff99",
+      "editorLink.activeForeground": "#5555ce"
     },
     // git
     "git.autofetch": true,
@@ -154,7 +153,14 @@
     "extensions.ignoreRecommendations": false, // 推奨事項の通知をOFF
     // bookmarks
     "bookmarks.navigateThroughAllFiles": true,
+    // indentRainbow
+    "indentRainbow.colors": [
+      "rgba(255,255,64,0.3)",
+      "rgba(127,255,127,0.3)",
+      "rgba(255,127,255,0.3)",
+      "rgba(79,236,236,0.3)"
+    ],
     // vsicons
     "vsicons.dontShowNewVersionMessage": true,
-    "vsicons.presets.jsonOfficial": true,
+    "vsicons.presets.jsonOfficial": true
 }
