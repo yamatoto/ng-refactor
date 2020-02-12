@@ -20,11 +20,11 @@ export class ApiService {
   ) { }
 
   /**
-     * APIサーバからデータを1件取得する.(get)
-     * @param url APIのURL
-     * @param params パラメータ
-     * @returns レスポンス
-     */
+   * APIサーバからデータを1件取得する.(get)
+   * @param url APIのURL
+   * @param params パラメータ
+   * @returns レスポンス
+   */
   get<REQ_MODEL, RES_MODEL>(url: string, params: REQ_MODEL = null): Observable<RES_MODEL> {
     this.startLog(url, 'get', params);
     const endLogger = this.endLog(url, 'get');
@@ -42,11 +42,11 @@ export class ApiService {
   }
 
   /**
-     * APIサーバからデータを1件取得する.(post)
-     * @param url APIのURL
-     * @param formValue フォーム入力値
-     * @returns レスポンス
-     */
+   * APIサーバからデータを1件取得する.(post)
+   * @param url APIのURL
+   * @param formValue フォーム入力値
+   * @returns レスポンス
+   */
   post<REQ_MODEL, RES_MODEL>(url: string, model: REQ_MODEL = null): Observable<RES_MODEL> {
     this.startLog(url, 'post');
     const endLogger = this.endLog(url, 'post');
@@ -69,11 +69,11 @@ export class ApiService {
   }
 
   /**
-     * APIサーバからデータリストを取得する.(get)
-     * @param url APIのURL
-     * @param params パラメータ
-     * @returns レスポンス
-     */
+   * APIサーバからデータリストを取得する.(get)
+   * @param url APIのURL
+   * @param params パラメータ
+   * @returns レスポンス
+   */
   listByGet<REQ_MODEL, RES_MODEL>(url: string, params: REQ_MODEL = null): Observable<GenericList<RES_MODEL>> {
     this.startLog(url, 'listByGet', params);
     const endLogger = this.endLog(url, 'listByGet');
@@ -116,11 +116,11 @@ export class ApiService {
   }
 
   /**
-     * APIサーバにデータを1件登録する.(post)
-     * @param url APIのURL
-     * @param model 登録するデータ
-     * @returns レスポンス
-     */
+   * APIサーバにデータを1件登録する.(post)
+   * @param url APIのURL
+   * @param model 登録するデータ
+   * @returns レスポンス
+   */
   create<REQ_MODEL, RES_MODEL>(url: string, model: REQ_MODEL): Observable<RES_MODEL> {
     this.startLog(url, 'create');
     const endLogger = this.endLog(url, 'create');
@@ -141,11 +141,11 @@ export class ApiService {
   }
 
   /**
-     * APIサーバのデータを1件更新する.(put)
-     * @param url APIのURL
-     * @param model リクエストするデータ
-     * @returns レスポンス
-     */
+   * APIサーバのデータを1件更新する.(put)
+   * @param url APIのURL
+   * @param model リクエストするデータ
+   * @returns レスポンス
+   */
   update<REQ_MODEL, RES_MODEL>(url: string, model: REQ_MODEL = null): Observable<GenericList<RES_MODEL>> {
     this.startLog(url, 'update');
     const endLogger = this.endLog(url, 'update');
@@ -166,10 +166,10 @@ export class ApiService {
   }
 
   /**
-     * APIサーバからデータを1件削除する.(delete)
-     * @param url APIのURL
-     * @returns レスポンス
-     */
+   * APIサーバからデータを1件削除する.(delete)
+   * @param url APIのURL
+   * @returns レスポンス
+   */
   delete<RES_MODEL>(url: string): Observable<RES_MODEL> {
     this.startLog(url, 'delete');
     const endLogger = this.endLog(url, 'delete');
@@ -190,11 +190,11 @@ export class ApiService {
   }
 
   /**
-     * APIサーバからファイルを取得する.(get)
-     * @param url APIのURL
-     * @param params パラメータ
-     * @returns レスポンス
-     */
+   * APIサーバからファイルを取得する.(get)
+   * @param url APIのURL
+   * @param params パラメータ
+   * @returns レスポンス
+   */
   downloadFile<REQ_MODEL>(url: string, params: REQ_MODEL = null): Observable<any> {
     this.startLog(url, 'downloadFile', params);
     const endLogger = this.endLog(url, 'downloadFile');
@@ -213,11 +213,11 @@ export class ApiService {
   }
 
   /**
-     * APIサーバにファイルを登録する.(post)
-     * @param url APIのURL
-     * @param formValue フォーム値
-     * @returns レスポンス
-     */
+   * APIサーバにファイルを登録する.(post)
+   * @param url APIのURL
+   * @param formValue フォーム値
+   * @returns レスポンス
+   */
   uploadFile<REQ_MODEL, RES_MODEL>(url: string, formValue: REQ_MODEL): Observable<RES_MODEL> {
     this.startLog(url, 'uploadFile');
     const endLogger = this.endLog(url, 'uploadFile');
@@ -237,9 +237,9 @@ export class ApiService {
   }
 
   /**
-     * @param オブジェクト
-     * @returns HTTPパラメータ型に変換したオブジェクト
-     */
+   * @param オブジェクト
+   * @returns HTTPパラメータ型に変換したオブジェクト
+   */
   private toHttpParams(params: any): HttpParams {
     if (this.objService.isNullOrUndefined(params)) {
       return;
@@ -254,11 +254,11 @@ export class ApiService {
   }
 
   /**
-     * http通信開始ログ
-     * @param url APIのURL
-     * @param fn 関数名
-     * @param params パラメータ
-     */
+   * http通信開始ログ
+   * @param url APIのURL
+   * @param fn 関数名
+   * @param params パラメータ
+   */
   private startLog(url: string, fn: string, params: any = null) {
     console.log(
       JSON.stringify({
@@ -271,11 +271,11 @@ export class ApiService {
   }
 
   /**
-     * http通信終了ログ
-     * @param url APIのURL
-     * @param fn 関数名
-     * @param res HTTPレスポンス
-     */
+   * http通信終了ログ
+   * @param url APIのURL
+   * @param fn 関数名
+   * @param res HTTPレスポンス
+   */
   private endLog = (url: string, fn: string) => ( res: any = null ) =>
     console.log(
       JSON.stringify({

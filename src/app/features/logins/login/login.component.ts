@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { Router } from '@angular/router';
-import { AppState } from '@app/reducers';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AuthHttpService } from '@core/http/auth-http.service';
 import { LoginFormService } from '@core/services/login-form.service';
+import { login } from '@core/store/actions/auth.actions';
+import { AppState } from '@core/store/reducers';
 import { Store } from '@ngrx/store';
 import { noop } from 'rxjs';
 import { tap } from 'rxjs/operators';
-import { login } from '../auth.actions';
 
 @Component({
   selector: 'app-login',
@@ -22,6 +22,7 @@ export class LoginComponent implements OnInit {
     private formService: LoginFormService,
     private authHttpService: AuthHttpService,
     private router: Router,
+    private route: ActivatedRoute,
     private store: Store<AppState>
   ) { }
 
@@ -37,7 +38,7 @@ export class LoginComponent implements OnInit {
       .pipe(
         tap(user => {
           this.store.dispatch(login({ user }));
-          this.router.navigateByUrl('/home');
+          this.router.navigate([ this.route.snapshot.queryParams.redirect || '/home'], { replaceUrl: true });
         })
       ).subscribe(
         noop,

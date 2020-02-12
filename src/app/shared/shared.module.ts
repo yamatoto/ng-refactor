@@ -12,6 +12,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
@@ -24,6 +25,7 @@ import { TranslateModule } from '@ngx-translate/core';
   ],
   exports: [
     CommonModule,
+    RouterModule,
     TranslateModule,
     FormsModule,
     ReactiveFormsModule,

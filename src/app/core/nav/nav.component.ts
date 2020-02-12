@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Router } from '@angular/router';
-import { login, logout } from '@features/logins/auth.actions';
-import { isLoggedIn, isLoggedOut } from '@features/logins/auth.selectors';
+import { login, logout } from '@core/store/actions/auth.actions';
+import { AppState } from '@core/store/reducers';
+import { isLoggedIn, isLoggedOut } from '@core/store/selectors/auth.selectors';
 import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { AppState } from '../../reducers';
 
 @Component({
   selector: 'app-nav',
@@ -30,7 +30,8 @@ export class NavComponent implements OnInit {
 
     const userProfile = localStorage.getItem('user');
     if (userProfile) {
-      this.store.dispatch(login({'user': JSON.parse(userProfile)}));
+      const user = JSON.parse(userProfile);
+      this.store.dispatch(login({user}));
     }
 
     this.isLoggedIn$ = this.store.pipe(

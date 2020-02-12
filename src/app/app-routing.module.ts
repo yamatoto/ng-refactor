@@ -1,8 +1,26 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { HomeComponent } from '@features/homes/pages/home/home.component';
+import { NewsComponent } from '@features/homes/pages/news/news.component';
+import { LoginComponent } from '@features/logins/login/login.component';
 import { AuthGuard } from './core/auth/auth.guard';
 
 const appRoutes: Routes = [
+  {
+    path: 'home',
+    component: HomeComponent,
+    canActivate: [AuthGuard],
+    children: [
+      {
+        path: 'news/:id',
+        component: NewsComponent,
+        data: { breadcrumb: 'お知らせ' },
+      }]
+  },
+  {
+    path: 'login',
+    component: LoginComponent
+  },
   {
     path: 'products',
     loadChildren: () => import('./features/products/products.module').then(m => m.ProductsModule),
@@ -19,12 +37,12 @@ const appRoutes: Routes = [
   // },
   {
     path: '',
-    redirectTo: '/login',
+    redirectTo: '/home',
     pathMatch: 'full'
   },
   {
     path: '**',
-    redirectTo: '/login',
+    redirectTo: '',
     pathMatch: 'full'
   },
 ];

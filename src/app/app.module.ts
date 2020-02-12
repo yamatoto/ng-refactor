@@ -4,8 +4,10 @@ import localeja from '@angular/common/locales/ja';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { metaReducers, reducers } from '@core/store/reducers';
 import { environment } from '@env/environment';
-import { LoginModule } from '@features/logins/login.module';
+import { HomesModule } from '@features/homes/homes.module';
+import { AuthModule } from '@features/logins/auth.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { EntityDataModule } from '@ngrx/data';
 import { EffectsModule } from '@ngrx/effects';
@@ -14,12 +16,12 @@ import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { SharedModule } from '@shared/shared.module';
 import { CookieService } from 'ngx-cookie-service';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { HttpApiInterceptor } from './core/interceptors/http-api.interceptor';
-import { metaReducers, reducers } from './reducers';
 registerLocaleData(localeja, 'ja');
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
   return new TranslateHttpLoader(http, '/assets/i18n/', '.json?t=' + new Date().getTime());
@@ -35,6 +37,8 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     NgbModule,
     AppRoutingModule,
     CoreModule,
+    SharedModule,
+    HomesModule,
     HttpClientModule,
     TranslateModule.forRoot({
       loader: {
@@ -43,7 +47,7 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
         deps: [HttpClient]
       }
     }),
-    LoginModule,
+    AuthModule.forRoot(),
     StoreModule.forRoot(reducers, {
       metaReducers,
       runtimeChecks: {

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot } from '@angular/router';
-import { AppState } from '@app/reducers';
-import { isLoggedIn } from '@features/logins/auth.selectors';
+import { AppState } from '@core/store/reducers';
+import { isLoggedIn } from '@core/store/selectors/auth.selectors';
 import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
@@ -19,7 +19,7 @@ export class AuthGuard implements CanActivate {
         select(isLoggedIn),
         tap(loggedIn => {
           if (!loggedIn) {
-            this.router.navigateByUrl('/login');
+            this.router.navigate(['/login'], { queryParams: { redirect: state.url }, replaceUrl: true });
           }
         })
       );
