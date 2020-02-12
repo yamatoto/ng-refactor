@@ -6,7 +6,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { metaReducers, reducers } from '@core/store/reducers';
 import { environment } from '@env/environment';
-import { HomesModule } from '@features/homes/homes.module';
 import { AuthModule } from '@features/logins/auth.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { EntityDataModule } from '@ngrx/data';
@@ -38,7 +37,6 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     AppRoutingModule,
     CoreModule,
     SharedModule,
-    HomesModule,
     HttpClientModule,
     TranslateModule.forRoot({
       loader: {
