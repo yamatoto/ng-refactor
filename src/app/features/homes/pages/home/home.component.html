@@ -1,7 +1,0 @@
-<mat-card>
-  <ng-container *ngIf="news$ | async as news;">
-    <app-news-list [news]="news"></app-news-list>
-  </ng-container>
-  <app-contact-info></app-contact-info>
-</mat-card>
-<router-outlet></router-outlet>

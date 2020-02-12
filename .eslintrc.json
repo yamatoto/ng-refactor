@@ -19,13 +19,9 @@
         }
     },
     "plugins": [
-        "html",
         "@typescript-eslint"
     ],
     "settings": {
-        "html/html-extensions": [".html"],
-        "html/report-bad-indent": "error",
-        "html/indent": "+2"
     },
     "rules": {
         "@typescript-eslint/indent": ["error", 2, {

@@ -5,12 +5,17 @@ import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  selector: 'app-news-list-smart',
+  template: `
+    <mat-card>
+      <ng-container *ngIf="news$ | async as news;">
+        <app-news-list [news]="news"></app-news-list>
+      </ng-container>
+      <app-contact-info></app-contact-info>
+    </mat-card>
+  `
 })
-export class HomeComponent implements OnInit {
-
+export class NewsListSmartComponent implements OnInit {
   loading$: Observable<boolean>;
 
   news$: Observable<News[]>;
