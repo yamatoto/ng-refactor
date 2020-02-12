@@ -1,39 +1,40 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AuthGuard } from '@core/auth/auth.guard';
-import { PreProductEditComponent } from './pages/pre-product-edit/pre-product-edit.component';
-import { PreProductNewComponent } from './pages/pre-product-new/pre-product-new.component';
-import { ProductEditComponent } from './pages/product-edit/product-edit.component';
-import { ProductListComponent } from './pages/product-list/product-list.component';
-import { ProductViewComponent } from './pages/product-view/product-view.component';
+import { PreProductEditSmartComponent } from './pages/pre-product-edit/pre-product-edit.smart.component';
+import { PreProductNewSmartComponent } from './pages/pre-product-new/pre-product-new.smart.component';
+import { ProductEditSmartComponent } from './pages/product-edit/product-edit.smart.component';
+import { ProductListSmartComponent } from './pages/product-list/product-list.smart.component';
+import { ProductViewSmartComponent } from './pages/product-view/product-view.smart.component';
+import { ProductComponent } from './product.component';
 
 const routes: Routes = [
   {
     path: '',
-    canActivate: [AuthGuard],
+    component: ProductComponent,
     children: [
+      {path: '', redirectTo: 'list', pathMatch: 'full'},
       {
-        path: '',
-        component: ProductListComponent,
+        path: 'list',
+        component: ProductListSmartComponent,
       },
       {
         path: 'new',
-        component: PreProductNewComponent,
+        component: PreProductNewSmartComponent,
       },
       {
         path: 'pre-edit/:id',
-        component: PreProductEditComponent,
+        component: PreProductEditSmartComponent,
       },
       {
         path: 'edit/:id',
-        component: ProductEditComponent,
+        component: ProductEditSmartComponent,
         data: {
           // , authFn: AuthUtils.isInternalUser
         }
       },
       {
         path: 'view/:id',
-        component: ProductViewComponent,
+        component: ProductViewSmartComponent,
       }
     ]
   }

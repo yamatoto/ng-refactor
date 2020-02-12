@@ -1,23 +1,40 @@
-import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { TranslateModule } from '@ngx-translate/core';
+import { SharedModule } from '@shared/shared.module';
 import { PreProductEditComponent } from './pages/pre-product-edit/pre-product-edit.component';
+import { PreProductEditSmartComponent } from './pages/pre-product-edit/pre-product-edit.smart.component';
 import { PreProductNewComponent } from './pages/pre-product-new/pre-product-new.component';
+import { PreProductNewSmartComponent } from './pages/pre-product-new/pre-product-new.smart.component';
 import { ProductEditComponent } from './pages/product-edit/product-edit.component';
+import { ProductEditSmartComponent } from './pages/product-edit/product-edit.smart.component';
 import { ProductListComponent } from './pages/product-list/product-list.component';
+import { ProductListSmartComponent } from './pages/product-list/product-list.smart.component';
 import { ProductViewComponent } from './pages/product-view/product-view.component';
+import { ProductViewSmartComponent } from './pages/product-view/product-view.smart.component';
+import { ProductComponent } from './product.component';
 import { ProductsRoutingModule } from './products-routing.module';
 
+const COMPONENTS = [
+  ProductComponent,
+  PreProductNewComponent,
+  PreProductNewSmartComponent,
+  PreProductEditComponent,
+  PreProductEditSmartComponent,
+  ProductEditComponent,
+  ProductEditSmartComponent,
+  ProductViewComponent,
+  ProductViewSmartComponent,
+  ProductListComponent,
+  ProductListSmartComponent,
+];
+
 @NgModule({
-  declarations: [
-    PreProductNewComponent,
-    PreProductEditComponent,
-    ProductEditComponent,
-    ProductViewComponent,
-    ProductListComponent
-  ],
   imports: [
-    CommonModule,
-    ProductsRoutingModule
-  ]
+    SharedModule,
+    ProductsRoutingModule,
+    TranslateModule.forChild({})
+  ],
+  declarations: COMPONENTS,
+  exports: COMPONENTS
 })
 export class ProductsModule { }
