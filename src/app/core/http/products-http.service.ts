@@ -19,7 +19,7 @@ export class ProductsHttpService {
     return this.apiService.get(`${URL}/${id}`);
   }
 
-  search(conditions: ProductsSC): Observable<Product> {
+  search(conditions: ProductsSC): Observable<Product[]> {
     return this.apiService.post(URL, conditions);
   }
 }

@@ -3,7 +3,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { SharedModule } from '@shared/shared.module';
 import { FormAComponent } from './components/form-a/form-a.component';
 import { FormBComponent } from './components/form-b/form-b.component';
-import { SearchListFormComponent } from './components/search-list-form/search-list-form.component';
+import { SearchProductsFormComponent } from './components/search-products-form/search-products-form.component';
 import { PreProductEditComponent } from './pages/pre-product-edit/pre-product-edit.component';
 import { PreProductEditSmartComponent } from './pages/pre-product-edit/pre-product-edit.smart.component';
 import { PreProductNewComponent } from './pages/pre-product-new/pre-product-new.component';
@@ -31,7 +31,7 @@ const COMPONENTS = [
   ProductListSmartComponent,
   FormAComponent,
   FormBComponent,
-  SearchListFormComponent
+  SearchProductsFormComponent
 ];
 
 @NgModule({

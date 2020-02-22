@@ -81,8 +81,8 @@ const NEWS: News[] = [
   }
 ];
 
-export function findNewsById(newsId: number): News {
-  return NEWS.find(news => news.id = newsId);
+export function findNewsById(id: number): News {
+  return NEWS.find(news => news.id = id);
 }
 
 export function findAllNews(): News[] {

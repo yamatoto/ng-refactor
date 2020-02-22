@@ -1,21 +1,24 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { ProductsHttpService } from '@core/http/products-http.service';
+import { Product } from '@shared/models/product.model';
+import { ProductsSC } from '@shared/models/search-conditions/products-sc.model';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-product-list-smart',
   template: `
-    <app-search-list-form (search)="searchProducts($event)"></app-search-list-form>
-    <app-product-list></app-product-list>
+    <app-search-products-form (search)="searchProducts($event)"></app-search-products-form>
+    <app-product-list [products]="products$|async"></app-product-list>
   `
 })
 export class ProductListSmartComponent implements OnInit {
+  products$: Observable<Product[]>
 
-  constructor() { }
+  constructor(private productHttpService: ProductsHttpService) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
-  searchProducts(searchForm: NgForm): void {
-    console.log('onSearch!!!! searchForm.value:::', searchForm.value);
+  searchProducts(searchFormValue: ProductsSC): void {
+    this.products$ = this.productHttpService.search(searchFormValue);
   }
 }

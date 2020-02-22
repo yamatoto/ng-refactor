@@ -1,1 +1,9 @@
-<p>product-list works!</p>
+<ng-container *ngFor="let data of products">
+  <div class="d-flex">
+    <div>{{data.productNo}}｜</div>
+    <div>{{data.productName}}｜</div>
+    <div>
+      {{data.deliveryAt | date: "yyyy/MM/dd"}}
+    </div>
+  </div>
+</ng-container>
