@@ -11,22 +11,6 @@ export class ObjectService {
 
   /**
    * @param チェック対象のオブジェクト
-   * @returns true: objがnullまたはundefined
-   */
-  isNullOrUndefined<T>(obj: T | null | undefined): boolean {
-    return obj === null || typeof obj === 'undefined';
-  }
-
-  /**
-   * @param チェック対象のオブジェクト
-   * @returns true: objがnullでもundefinedでもない
-   */
-  isNotNullAndUndefined<T>(obj: T | null | undefined): boolean {
-    return obj !== null && typeof obj !== 'undefined';
-  }
-
-  /**
-   * @param チェック対象のオブジェクト
    * @returns true: objがnull
    */
   isNull<T>(obj: T | null | undefined): boolean {

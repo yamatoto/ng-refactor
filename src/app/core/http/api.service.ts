@@ -1,6 +1,5 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { ObjectService } from '@core/services/utils/object.service';
 import { environment } from '@env/environment';
 import { ContentTypeConsts } from '@shared/consts/content-type.const';
 import { CustomEncoder } from '@shared/lib/custom-encoder.lib';
@@ -15,8 +14,7 @@ import { SessionHttpService } from './session-http.service';
 export class ApiService {
   constructor(
     private http: HttpClient,
-    private sessionhttpService: SessionHttpService,
-    private objService: ObjectService
+    private sessionhttpService: SessionHttpService
   ) { }
 
   /**
@@ -241,12 +239,12 @@ export class ApiService {
    * @returns HTTPパラメータ型に変換したオブジェクト
    */
   private toHttpParams(params: any): HttpParams {
-    if (this.objService.isNullOrUndefined(params)) {
+    if (params == null) {
       return;
     }
 
     return Object.getOwnPropertyNames(params)
-      .filter(key => this.objService.isNotNullAndUndefined(params[key]))
+      .filter(key => params[key] != null)
       .reduce(
         (p, key) => p.set(key, params[key]),
         new HttpParams({ encoder: new CustomEncoder() })

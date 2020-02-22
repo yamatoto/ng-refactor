@@ -1,6 +1,5 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { ObjectService } from '@core/services/utils/object.service';
 import { ContentTypeConsts } from '@shared/consts/content-type.const';
 import { SessionConsts } from '@shared/consts/session.const';
 import { Session } from '@shared/models/session.model';
@@ -17,8 +16,7 @@ export class SessionHttpService {
 
   constructor(
     private http: HttpClient,
-    private cookieService: CookieService,
-    private objService: ObjectService
+    private cookieService: CookieService
   ) { }
 
   /**
@@ -32,7 +30,7 @@ export class SessionHttpService {
    * @returns APIセッション
    */
   getApiSession(): Observable<Session> {
-    if (this.objService.isNotNullAndUndefined(this.getSavedSession())
+    if (this.getSavedSession() != null
             && this.cookieService.get(SessionConsts.GENERATION_TIME_NAME) === this.sessionGenerationTime) {
       return this.sessionSubject.asObservable();
     }
@@ -76,8 +74,7 @@ export class SessionHttpService {
   deleteApiSession(): Observable<void> {
     const HEADERS = new HttpHeaders({ 'x-xsrf-token': this.getToken() });
     const options = {
-      headers: HEADERS,
-      withCredentials: true
+      headers: HEADERS, withCredentials: true
     };
 
     return this.http
