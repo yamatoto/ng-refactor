@@ -256,13 +256,13 @@ export class ApiService {
   /**
    * http通信開始ログ
    * @param url APIのURL
-   * @param fn 関数名
+   * @param fnName 関数名
    * @param params パラメータ
    */
-  private startLog(url: string, fn: string, params: any = null) {
+  private startLog(url: string, fnName: string, params: any = null) {
     console.log(
       JSON.stringify({
-        [fn]: {
+        [fnName]: {
           start: { url: url },
           params: params
         }
@@ -273,13 +273,13 @@ export class ApiService {
   /**
    * http通信終了ログ
    * @param url APIのURL
-   * @param fn 関数名
+   * @param fnName 関数名
    * @param res HTTPレスポンス
    */
-  private endLog = (url: string, fn: string) => ( res: any = null ) =>
+  private endLog = (url: string, fnName: string) => ( res: any = null ) =>
     console.log(
       JSON.stringify({
-        [fn]: {
+        [fnName]: {
           end: { url: url },
           res: res
         }

@@ -3,7 +3,7 @@ import { ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { MockActivatedRouteSnapshot } from '@core/mocks/dummy-activate-route-snapshot';
 import { DummyComponent } from '@core/mocks/dummy.component';
-import { AuthState } from '@features/logins/reducers';
+import { AuthState } from '@core/store/reducers/auth.reducer';
 import { Store } from '@ngrx/store';
 import { MockStore, provideMockStore } from '@ngrx/store/testing';
 import { cold } from 'jasmine-marbles';

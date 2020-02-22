@@ -23,7 +23,7 @@ export class NewsSmartComponent implements OnInit {
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
       const id = params.get('id');
-      this.news$ = this.newsHttpService.findNewsById(Number(id));
+      this.news$ = this.newsHttpService.findById(Number(id));
     });
   }
 }

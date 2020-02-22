@@ -29,7 +29,7 @@ export class NewsListSmartComponent implements OnInit {
   }
 
   reload(): void {
-    this.news$ = this.newsHttpService.findAllNews()
+    this.news$ = this.newsHttpService.findAll()
       .pipe(
         map(news => news),
         shareReplay()

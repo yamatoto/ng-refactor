@@ -13,11 +13,11 @@ export class NewsHttpService {
     private apiService: ApiService
   ) { }
 
-  findAllNews(): Observable<News[]> {
+  findAll(): Observable<News[]> {
     return this.apiService.get(URL);
   }
 
-  findNewsById(id: number): Observable<News> {
+  findById(id: number): Observable<News> {
     return this.apiService.get(`${URL}/${id}`);
   }
 }

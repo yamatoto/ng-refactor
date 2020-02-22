@@ -5,13 +5,13 @@ import { StoreModule } from '@ngrx/store';
 import { SharedModule } from '@shared/shared.module';
 import { NavComponent } from './nav/nav.component';
 import { AuthEffects } from './store/effects/auth.effects';
-import { authReducer } from './store/reducers/auth.reducer';
+import { authFeatureKey, authReducer } from './store/reducers/auth.reducer';
 
 @NgModule({
   imports: [
     SharedModule,
     RouterModule,
-    StoreModule.forFeature('auth', authReducer),
+    StoreModule.forFeature(authFeatureKey, authReducer),
     EffectsModule.forFeature([AuthEffects])
   ],
   declarations: [
