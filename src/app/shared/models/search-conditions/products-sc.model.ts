@@ -3,8 +3,8 @@ export interface ProductsSC {
   productNo: string;
   /** 品名 */
   productName: string;
-  /** 納期 */
-  deliveryAt: {
+  /** 仮発注日 */
+  preOrderAt: {
     /** from */
     from: Date;
     /** to */

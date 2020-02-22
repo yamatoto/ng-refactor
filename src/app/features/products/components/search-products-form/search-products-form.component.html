@@ -1,35 +1,63 @@
-<form
-  #searchForm="ngForm"
-  (ngSubmit)="onSearch(searchForm)">
-  <div>
-    <label>品番:</label>
-    <input
-      type="text"
-      name="productNo"
-      ngModel>
-  </div>
-  <div>
-    <label>品名:</label>
-    <input
-      type="text"
-      name="productName"
-      ngModel>
-  </div>
-  <fieldset ngModelGroup="deliveryAt">
-    <div>
-      <label>納品日:</label>
-      <input
-        type="text"
-        name="from"
-        ngModel>
-    </div>
-    <div>
-      <label>〜</label>
-      <input
-        type="text"
-        name="to"
-        ngModel>
-    </div>
-  </fieldset>
-  <button type="submit">検索</button>
-</form>
+<mat-card>
+  <form
+    #searchForm="ngForm"
+    (ngSubmit)="onSearch(searchForm)">
+    <mat-card-content>
+      <div>
+        <mat-form-field>
+          <mat-label>品番:</mat-label>
+          <input
+            matInput
+            type="text"
+            name="productNo"
+            ngModel>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <mat-label>品名:</mat-label>
+          <input
+            matInput
+            type="text"
+            name="productName"
+            ngModel>
+        </mat-form-field>
+      </div>
+      <div>
+        <fieldset ngModelGroup="preOrderAt">
+          <mat-form-field>
+            <mat-label>仮発注日:</mat-label>
+            <input
+              matInput
+              type="date"
+              name="from"
+              ngModel>
+          </mat-form-field>
+          <label class="pl-2 pr-2">〜</label>
+          <mat-form-field>
+            <input
+              matInput
+              type="date"
+              name="to"
+              ngModel>
+          </mat-form-field>
+        </fieldset>
+      </div>
+    </mat-card-content>
+
+    <mat-card-actions>
+      <a
+        mat-raised-button
+        color="primary"
+        [routerLink]="['/products','new']">
+        新規登録
+      </a>
+      <button
+        mat-raised-button
+        type="submit"
+        color="primary">
+        検索
+      </button>
+    </mat-card-actions>
+  </form>
+</mat-card>

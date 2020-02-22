@@ -5,6 +5,6 @@ export class Product extends Table {
   productNo: string;
   /** 品名 */
   productName: string;
-  /** 納期 */
-  deliveryAt: Date;
+  /** 仮発注日 */
+  preOrderAt: Date;
 }
