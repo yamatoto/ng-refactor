@@ -1,0 +1,79 @@
+<mat-card>
+  <button
+    mat-raised-button
+    (click)="onAddRow()">
+    追加
+  </button>
+  <form
+    *ngIf="showForm"
+    [formGroup]="mainForm"
+    (ngSubmit)="onSubmit()">
+    <mat-card-content>
+      <ng-container formArrayName="barArray">
+        <mat-card
+          *ngFor="let bar of mainForm.get('barArray')['controls']; let idx=index;"
+          [formGroupName]="idx">
+
+          <mat-form-field class="form-element">
+            <mat-label>hoge</mat-label>
+            <input
+              matInput
+              formControlName="hoge">
+            <mat-error *ngIf="!bar.controls.hoge.valid">必須項目です</mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="form-element">
+            <mat-label>fuga</mat-label>
+            <input
+              matInput
+              formControlName="fuga">
+            <mat-error *ngIf="!bar.controls.fuga.valid">必須項目です</mat-error>
+          </mat-form-field>
+
+        </mat-card>
+      </ng-container>
+
+      <!-- <mat-form-field class="form-element">
+        <mat-label>parentName</mat-label>
+        <input
+          matInput
+          formControlName="parentName">
+        <mat-error *ngIf="!fCtrl.parentName.valid">必須項目です</mat-error>
+      </mat-form-field>
+
+      <div formGroupName="childGroup">
+        <mat-form-field class="form-element">
+          <mat-label>childName</mat-label>
+          <input
+            matInput
+            formControlName="childName">
+          <mat-error *ngIf="!fChildCtrl.childName.valid">必須項目です</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="form-element">
+          <mat-label>childCount</mat-label>
+          <input
+            matInput
+            formControlName="childCount">
+          <mat-error *ngIf="!fChildCtrl.childCount.valid">必須項目です</mat-error>
+        </mat-form-field>
+      </div> -->
+    </mat-card-content>
+
+    <mat-card-actions>
+      <button
+        mat-raised-button
+        type="submit"
+        color="primary">
+        登録
+      </button>
+      <!-- <button
+        mat-raised-button
+        type="button"
+        (click)="onInitChildForm()"
+        color="primary">
+        子フォーム初期化
+      </button> -->
+    </mat-card-actions>
+  </form>
+</mat-card>
